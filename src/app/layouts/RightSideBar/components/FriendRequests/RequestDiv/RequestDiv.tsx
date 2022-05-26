@@ -1,0 +1,94 @@
+import React from 'react';
+import styled from 'styled-components';
+import { Avatar } from './Avatar';
+
+interface Props {
+  name: string;
+  username: string;
+  avatar: string;
+}
+
+export const RequestDiv = React.memo(({ name, username, avatar }: Props) => {
+  return (
+    <Container>
+      <Avatar imgSrc={avatar} />
+      <UserDetailDiv>
+        <Name>{name}</Name>
+        <Username>@{username}</Username>
+      </UserDetailDiv>
+      <CTA>
+        <Button>
+          <ButtonText>Accept</ButtonText>
+        </Button>
+        <Button>
+          <ButtonText>Decline</ButtonText>
+        </Button>
+      </CTA>
+    </Container>
+  );
+});
+
+const Container = styled.div`
+  width: 100%;
+  background-color: ${p => p.theme.backgroundVariant};
+  background: #ffffff;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+`;
+
+const UserDetailDiv = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const Name = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+`;
+
+const Username = styled.p`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.46);
+`;
+
+const CTA = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const Button = styled.button`
+  border: none;
+  width: 11rem;
+  height: 40px;
+  background: #1778f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+`;
+
+const ButtonText = styled.span`
+  display: block;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+`;

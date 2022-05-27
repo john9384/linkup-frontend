@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ContactsItem } from './components/ContactsItem';
 import { dummyUsers } from '../../../../assets/dummyUsers';
 export const Contacts = () => {
-  const contacts = dummyUsers;
+  const contacts = dummyUsers.slice(0, 5);
   return (
     <Container>
       <Head>

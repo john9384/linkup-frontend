@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Avatar } from './Avatar';
-
+import {
+  ButtonPry,
+  ButtonSec,
+  ButtonText,
+} from '../../../../../components/Button/index';
 interface Props {
   name: string;
   username: string;
@@ -17,12 +21,12 @@ export const RequestDiv = React.memo(({ name, username, avatar }: Props) => {
         <Username>@{username}</Username>
       </UserDetailDiv>
       <CTA>
-        <Button>
+        <ButtonPry>
           <ButtonText>Accept</ButtonText>
-        </Button>
-        <Button>
+        </ButtonPry>
+        <ButtonSec>
           <ButtonText>Decline</ButtonText>
-        </Button>
+        </ButtonSec>
       </CTA>
     </Container>
   );
@@ -68,27 +72,10 @@ const Username = styled.p`
 
 const CTA = styled.div`
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   width: 100%;
-`;
-
-const Button = styled.button`
-  border: none;
-  width: 11rem;
-  height: 40px;
-  background: #1778f2;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff;
-`;
-
-const ButtonText = styled.span`
-  display: block;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.5rem;
+  button {
+    flex-grow: 1;
+  }
 `;

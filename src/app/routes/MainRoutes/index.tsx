@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom';
 import { AuthGuard } from '../guards/AuthGuard';
 import { HomePage } from 'app/pages/HomePage/Homepage';
 import { PageLayout } from 'app/layouts/PageLayout';
-import { NewsFeed } from 'app/pages/NewsFeed';
+import { People } from 'app/pages/People';
 
 interface Props {}
 
@@ -17,8 +17,8 @@ export const MainRoutes = React.memo((props: Props) => {
           <AuthGuard exact path="/" isAuthenticated={isAuthenticated}>
             <HomePage />
           </AuthGuard>
-          <AuthGuard exact path="/news-feed" isAuthenticated={isAuthenticated}>
-            <NewsFeed />
+          <AuthGuard exact path="/people" isAuthenticated={isAuthenticated}>
+            <People />
           </AuthGuard>
         </Switch>
       </PageLayout>

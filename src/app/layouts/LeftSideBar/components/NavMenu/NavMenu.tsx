@@ -18,7 +18,7 @@ export const NavMenu = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/">
+          <NavLink to="/people">
             <PeopleAltOutlinedIcon className="icon" />
             <Text> People</Text>
           </NavLink>

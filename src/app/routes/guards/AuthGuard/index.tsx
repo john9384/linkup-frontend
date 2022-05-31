@@ -10,7 +10,7 @@ export const AuthGuard: React.FC<Props & Record<string, any>> = memo(
   ({ isAuthenticated, children, ...rest }: Props) => {
     console.log('isAuthenticated :>> ', isAuthenticated);
     if (!isAuthenticated) {
-      return <Redirect to="/" />;
+      return <Redirect to="/auth/login" />;
     }
     return <Route {...rest}>{children}</Route>;
   },

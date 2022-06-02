@@ -8,11 +8,10 @@ export function Login() {
         <title>Home Page</title>
         <meta name="Home" content="" />
       </Helmet>
-      <Container></Container>
+      <Container>Hello login</Container>
     </>
   );
 }
 
-const Container = styled.div`
-  height: 100%;
-`;
+const Container = styled.div``;
+const Form = styled.form``;

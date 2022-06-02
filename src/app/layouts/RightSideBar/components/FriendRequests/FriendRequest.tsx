@@ -12,6 +12,7 @@ export const FriendRequest = () => {
       </Head>
       {friendRequests.map(friendRequest => (
         <RequestDiv
+          key={friendRequest.name}
           name={friendRequest.name}
           username={friendRequest.username}
           avatar={friendRequest.avatar}

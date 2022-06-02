@@ -10,7 +10,6 @@ interface Props {
 }
 
 export const PageLayout = React.memo(({ children }: Props) => {
-  console.log('Gets here');
   return (
     <Page>
       <TopBar />

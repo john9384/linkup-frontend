@@ -10,6 +10,6 @@ import { ThemeState } from 'styles/theme/slice/types';
 */
 export interface RootState {
   theme?: ThemeState;
-  auth: AuthState;
+  auth?: AuthState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

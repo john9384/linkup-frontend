@@ -8,7 +8,7 @@ import {
 import authSaga from './saga';
 
 export const initialState: AuthState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
   loading: false,
   user: {},
   error: null,
@@ -32,17 +32,11 @@ const slice = createSlice({
     signupUser(state, action: PayloadAction<any>) {
       state.loading = true;
     },
-    verifyEmail(state, action: PayloadAction<any>) {
-      state.loading = true;
-    },
-    signinUser(state, action: PayloadAction<any>) {
-      state.loading = true;
-    },
   },
 });
 
 export const { actions: authActions } = slice;
-
+console.log('slice aname', slice.name);
 export const useAuthSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer });
   useInjectSaga({ key: 'auth', saga: authSaga });

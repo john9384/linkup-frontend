@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { StyleConstants as SC } from 'styles/StyleConstants';
-import { AuthCTA } from './components/AuthCTA';
 import { TopBarRight } from './components/TopBarRight';
 
 export const TopBar = () => {
-  const isAuthenticated = false;
   return (
     <Container>
       <TopBarLeft>LinkUp</TopBarLeft>
-      {isAuthenticated ? <TopBarRight /> : <AuthCTA />}
+      <TopBarRight />
     </Container>
   );
 };

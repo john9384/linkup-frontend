@@ -1,0 +1,13 @@
+# Don't add auto-generated stuff into to reduce copy time
+coverage
+build
+node_modules
+stats.json
+.pnp
+.pnp.js
+
+# boilerplate internals
+generated-cra-app
+.cra-template-rb
+template
+.eslintcache

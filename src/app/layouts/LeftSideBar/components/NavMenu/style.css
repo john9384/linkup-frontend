@@ -1,0 +1,20 @@
+.icon {
+  font-size: 2.4rem !important;
+  color: #505d6f;
+  margin-right: 1rem;
+  margin-top: -3px;
+  transition: all 0.5s;
+}
+.active {
+  background-color: #f4f6fa;
+}
+.active::after {
+  content: '';
+  display: block;
+  background-color: #1778f2;
+  height: 100%;
+  width: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'app/components/Link';
-import './Icon.css';
+import { NavLink } from 'react-router-dom';
+import './style.css';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
@@ -11,35 +11,35 @@ export const NavMenu = () => {
   return (
     <Container>
       <NavList>
-        <NavItem>
-          <NavLink to="/">
+        <NavItem to="/">
+          <NavContent>
             <HomeOutlinedIcon className="icon" />
             <Text> Home</Text>
-          </NavLink>
+          </NavContent>
         </NavItem>
-        <NavItem>
-          <NavLink to="/people">
+        <NavItem to="/people">
+          <NavContent>
             <PeopleAltOutlinedIcon className="icon" />
             <Text> People</Text>
-          </NavLink>
+          </NavContent>
         </NavItem>
-        <NavItem>
-          <NavLink to="/">
+        <NavItem to="/photos">
+          <NavContent>
             <PhotoOutlinedIcon className="icon" />
             <Text>Photos</Text>
-          </NavLink>
+          </NavContent>
         </NavItem>
-        <NavItem>
-          <NavLink to="/">
+        <NavItem to="/profile">
+          <NavContent>
             <PermIdentityOutlinedIcon className="icon" />
             <Text>Profile</Text>
-          </NavLink>
+          </NavContent>
         </NavItem>
-        <NavItem>
-          <NavLink to="/">
+        <NavItem to="/settings">
+          <NavContent>
             <SettingsOutlinedIcon className="icon" />
             <Text>Settings</Text>
-          </NavLink>
+          </NavContent>
         </NavItem>
       </NavList>
     </Container>
@@ -63,7 +63,7 @@ const NavList = styled.ul`
   padding: 1.5rem 0;
 `;
 
-const NavItem = styled.li`
+const NavItem = styled(NavLink)`
   padding: 0 5rem;
   width: 100%;
   transition: all 0.2s;
@@ -95,7 +95,7 @@ const NavItem = styled.li`
   }
 `;
 
-const NavLink = styled(Link)`
+const NavContent = styled.span`
   text-decoration: none;
   display: flex;
   padding: 2rem 1rem;

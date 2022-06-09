@@ -85,11 +85,39 @@ export const AppRoutes = memo((props: Props) => {
             </PageLayout>
           }
         />
+
         <Route
           path="/people"
           element={
             <PageLayout>
               <People />
+            </PageLayout>
+          }
+        />
+
+        <Route
+          path="/photos"
+          element={
+            <PageLayout>
+              <HomePage />
+            </PageLayout>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <PageLayout>
+              <HomePage />
+            </PageLayout>
+          }
+        />
+
+        <Route
+          path="/settings"
+          element={
+            <PageLayout>
+              <HomePage />
             </PageLayout>
           }
         />

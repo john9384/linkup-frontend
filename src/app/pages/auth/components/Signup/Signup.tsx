@@ -70,7 +70,7 @@ const Container = styled.div`
   gap: 2rem;
 `;
 
-const FormHead = styled.h1`
+const FormHead = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -9,6 +9,10 @@ import { AuthPageLayout } from 'app/layouts/AuthPageLayout';
 import { HomePage } from 'app/pages/HomePage/Homepage';
 import { PageLayout } from 'app/layouts/PageLayout';
 import { People } from 'app/pages/People';
+import { ForgotPassword } from 'app/pages/auth/components/ForgotPassword';
+import { ResetPassword } from 'app/pages/auth/components/ResetPassword';
+import { VerifyEmail } from 'app/pages/auth/components/VerifyEmail/VerifyEmail';
+import { VerifyResetToken } from 'app/pages/auth/components/VerifyResetToken';
 
 interface Props {}
 
@@ -24,6 +28,7 @@ export const AppRoutes = memo((props: Props) => {
             </AuthPageLayout>
           }
         />
+
         <Route
           path="signup"
           element={
@@ -32,7 +37,45 @@ export const AppRoutes = memo((props: Props) => {
             </AuthPageLayout>
           }
         />
+
+        <Route
+          path="verify-email"
+          element={
+            <AuthPageLayout>
+              <VerifyEmail />
+            </AuthPageLayout>
+          }
+        />
+
+        <Route
+          path="forgot-password"
+          element={
+            <AuthPageLayout>
+              <ForgotPassword />
+            </AuthPageLayout>
+          }
+        />
+
+        <Route
+          path="confirm-reset"
+          element={
+            <AuthPageLayout>
+              <VerifyResetToken />
+            </AuthPageLayout>
+          }
+        />
+
+        <Route
+          path="reset-password"
+          element={
+            <AuthPageLayout>
+              <ResetPassword />
+            </AuthPageLayout>
+          }
+        />
       </Route>
+
+      {/* Authenticated Routes starts from here */}
       <Route path="/" element={<AuthGuard />}>
         <Route
           path="/"

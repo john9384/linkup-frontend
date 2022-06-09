@@ -8,7 +8,7 @@ import {
 import authSaga from './saga';
 
 export const initialState: AuthState = {
-  isAuthenticated: true,
+  isAuthenticated: false,
   loading: false,
   user: {},
   error: null,
@@ -36,7 +36,7 @@ const slice = createSlice({
 });
 
 export const { actions: authActions } = slice;
-console.log('slice aname', slice.name);
+
 export const useAuthSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer });
   useInjectSaga({ key: 'auth', saga: authSaga });

@@ -4,8 +4,12 @@ import { ButtonPry, ButtonSec, ButtonText } from 'app/components/Button';
 import FacebookIcon from '../../assets/facebook.png';
 import GoogleIcon from '../../assets/google.png';
 import { Link } from 'react-router-dom';
+import { useAuthSlice } from '../../slice';
+import { useDispatch } from 'react-redux';
 
 export function Login() {
+  const { actions } = useAuthSlice();
+  const dispatch = useDispatch();
   return (
     <>
       <Helmet>
@@ -28,7 +32,10 @@ export function Login() {
           <FormField>
             <InputField type="password" placeholder="Password" />
           </FormField>
-          <SubmitButton>
+          <Span to="/auth/forgot-password">Forgot Password</Span>
+          <SubmitButton
+            onClick={() => dispatch(actions.setAuthenticatedState(true))}
+          >
             <ButtonText>Login</ButtonText>
           </SubmitButton>
         </Form>
@@ -54,7 +61,7 @@ const Container = styled.div`
   gap: 2rem;
 `;
 
-const FormHead = styled.h1`
+const FormHead = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,4 +126,10 @@ const ServiceButton = styled.button`
 const BtnIcon = styled.img``;
 const BtnText = styled.span`
   display: block;
+`;
+const Span = styled(Link)`
+  color: #1778f2;
+  align-self: flex-end;
+  margin: 1rem 0;
+  margin-right: 1rem;
 `;

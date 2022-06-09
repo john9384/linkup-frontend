@@ -43,6 +43,11 @@ export function Signup() {
             <ButtonText>Signup</ButtonText>
           </SubmitButton>
         </Form>
+        <InfoSection>
+          By clicking Create Account, you acknowledge you have read and agreed
+          to our <Span to="#">Terms of Use</Span> and
+          <Span to="#">Privacy Policy</Span>.
+        </InfoSection>
         <OAuthButtons>
           <ServiceButton>
             <BtnIcon src={GoogleIcon}></BtnIcon>
@@ -62,7 +67,7 @@ const Container = styled.div`
   height: max-content;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 `;
 
 const FormHead = styled.h1`
@@ -70,6 +75,7 @@ const FormHead = styled.h1`
   justify-content: space-between;
   align-items: center;
   padding: 0 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const Title = styled.h1`
@@ -81,7 +87,7 @@ const Form = styled.form`
   width: max-content;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
 const FormField = styled.div`
@@ -139,4 +145,11 @@ const ServiceButton = styled.button`
 const BtnIcon = styled.img``;
 const BtnText = styled.span`
   display: block;
+`;
+const InfoSection = styled.div`
+  color: grey;
+  width: 40rem;
+`;
+const Span = styled(Link)`
+  color: #1778f2;
 `;

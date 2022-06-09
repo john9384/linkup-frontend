@@ -51,7 +51,7 @@ const Container = styled.div`
   height: max-content;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
 `;
 
 const FormHead = styled.h1`
@@ -59,6 +59,7 @@ const FormHead = styled.h1`
   justify-content: space-between;
   align-items: center;
   padding: 0 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const Title = styled.h1`
@@ -70,7 +71,7 @@ const Form = styled.form`
   width: max-content;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 `;
 
 const FormField = styled.div`

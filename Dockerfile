@@ -2,8 +2,10 @@ FROM node
 
 WORKDIR /app
 
+RUN npm install yarn
+
 COPY package.json ./
-RUN npm install
+RUN yarn install --legacy-peer-deps
 
 COPY ./ ./
 

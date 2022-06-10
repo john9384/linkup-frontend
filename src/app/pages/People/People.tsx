@@ -7,8 +7,8 @@ export const People = () => {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
-        <meta name="Home" content="" />
+        <title>People</title>
+        <meta name="People" content="" />
       </Helmet>
       <Container>
         <FilterDiv />

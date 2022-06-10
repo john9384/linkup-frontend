@@ -3,7 +3,7 @@
 exports[`<App /> should render and match the snapshot 1`] = `
 <BrowserRouter>
   <Helmet
-    defaultTitle="React Boilerplate"
+    defaultTitle="Linkup"
     defer={true}
     encodeSpecialCharacters={true}
     htmlAttributes={
@@ -12,23 +12,16 @@ exports[`<App /> should render and match the snapshot 1`] = `
       }
     }
     prioritizeSeoTags={false}
-    titleTemplate="%s - React Boilerplate"
+    titleTemplate="Linkup - %s"
   >
     <meta
-      content="A React Boilerplate application"
+      content="A Social app"
       name="description"
     />
   </Helmet>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
+  <React.Fragment>
+    <Memo />
+  </React.Fragment>
   <Memo(l) />
 </BrowserRouter>
 `;

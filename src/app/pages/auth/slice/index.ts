@@ -6,6 +6,7 @@ import {
   useInjectSaga,
 } from '../../../../utils/redux-injectors';
 import authSaga from './saga';
+import { createReducer } from 'store/reducers';
 
 export const initialState: AuthState = {
   isAuthenticated: false,

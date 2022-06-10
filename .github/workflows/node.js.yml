@@ -29,8 +29,13 @@ jobs:
           run: |
             npm install yarn
             yarn install
-          
-        - name: build App
+            
+        - name: Run Tests
           run: |
             yarn lint
-            npm run build --if-present
+            yarn test
+          
+        - name: Build App
+          run: yarn build
+
+

@@ -6,7 +6,6 @@ import {
   useInjectSaga,
 } from '../../../../utils/redux-injectors';
 import authSaga from './saga';
-import { createReducer } from 'store/reducers';
 
 export const initialState: AuthState = {
   isAuthenticated: false,
@@ -27,7 +26,6 @@ const slice = createSlice({
       state.loading = false;
     },
     setError(state, action: PayloadAction<any>) {
-      console.log('in the error', action.payload);
       state.error = { ...state.error, ...action.payload };
     },
     signupUser(state, action: PayloadAction<any>) {

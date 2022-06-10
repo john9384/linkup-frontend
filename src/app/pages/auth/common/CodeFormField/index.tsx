@@ -29,7 +29,6 @@ export const CodeFormField = () => {
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (isNaN(Number(e.target.value))) {
-      console.log('not a number', e.target.value);
       setCode('');
     } else {
       if (e.target.value.length > 6) return;

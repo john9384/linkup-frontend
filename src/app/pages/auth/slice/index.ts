@@ -26,7 +26,6 @@ const slice = createSlice({
       state.loading = false;
     },
     setError(state, action: PayloadAction<any>) {
-      console.log('in the error', action.payload);
       state.error = { ...state.error, ...action.payload };
     },
     signupUser(state, action: PayloadAction<any>) {

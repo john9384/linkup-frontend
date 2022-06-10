@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { NotFoundPage } from '../pages/NotFoundPage/Loadable';
-import { AuthGuard } from './guards/AuthGuard';
+import { NotFoundPage } from 'app/pages/NotFoundPage/Loadable';
+import { AuthGuard } from 'app/routes/guards/AuthGuard';
 import { NotAuthGuard } from './guards/NotAuthGuard';
 import { Login } from 'app/pages/auth/components/Login/Login';
 import { Signup } from 'app/pages/auth/components/Signup';

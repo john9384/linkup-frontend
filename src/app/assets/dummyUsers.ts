@@ -1,4 +1,4 @@
-import { links, avatars } from './imageLinks';
+import { links, avatars } from './imageLinks'
 export const dummyUsers = [
   {
     name: 'Joe Kulveski',
@@ -189,4 +189,4 @@ export const dummyUsers = [
     avatar: avatars[4],
     unreadMessage: 0,
   },
-];
+]

@@ -1,6 +1,6 @@
-import { lazyLoad } from 'utils/loadable';
-import { LoadingIndicator } from 'app/components/LoadingIndicator';
-import { LoadingWrapper } from 'app/layouts/LoadingWrapper';
+import { lazyLoad } from 'utils/loadable'
+import { LoadingIndicator } from 'app/components/LoadingIndicator'
+import { LoadingWrapper } from 'app/layouts/LoadingWrapper'
 
 export const PageLayout = lazyLoad(
   () => import('./PageLayout'),
@@ -12,4 +12,4 @@ export const PageLayout = lazyLoad(
       </LoadingWrapper>
     ),
   },
-);
+)

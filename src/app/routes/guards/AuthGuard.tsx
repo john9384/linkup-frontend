@@ -1,9 +1,9 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authSelector } from 'app/pages/auth/slice/selectors';
+import { Navigate, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { isAuthenticated } from 'app/pages/auth/slice/selectors'
 
 export const AuthGuard = () => {
-  const isAuthenticated = useSelector(authSelector);
+  const isAuth = useSelector(isAuthenticated)
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/auth/login" />;
-};
+  return isAuth ? <Outlet /> : <Navigate to="/auth/login" />
+}

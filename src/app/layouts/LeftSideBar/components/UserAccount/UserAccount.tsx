@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Avatar } from './components/Avatar';
-import AvatarImg from 'app/assets/avatar-3637425__340.png';
+import React from 'react'
+import styled from 'styled-components'
+import { Avatar } from './components/Avatar'
+import AvatarImg from 'app/assets/avatar-3637425__340.png'
 
 export const UserAccount = React.memo(() => {
   return (
@@ -12,8 +12,8 @@ export const UserAccount = React.memo(() => {
         <Username>@johndoe</Username>
       </UserDetailDiv>
     </Container>
-  );
-});
+  )
+})
 
 const Container = styled.div`
   width: 100%;
@@ -25,14 +25,14 @@ const Container = styled.div`
   padding: 3rem;
   display: flex;
   gap: 1.5rem;
-`;
+`
 
 const UserDetailDiv = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
+`
 
 const Name = styled.p`
   font-family: 'Inter';
@@ -41,7 +41,7 @@ const Name = styled.p`
   font-size: 20px;
   line-height: 24px;
   color: #000000;
-`;
+`
 
 const Username = styled.p`
   font-family: 'Inter';
@@ -50,4 +50,4 @@ const Username = styled.p`
   font-size: 12px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.46);
-`;
+`

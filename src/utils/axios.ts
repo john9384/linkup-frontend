@@ -1,28 +1,26 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const client = axios.create({
-  baseURL: 'http://localhost:3000',
-});
+  baseURL: 'http://localhost:4000/api/v1',
+})
 
 export const apiCall = function (method, route, body = null, token = null) {
   const onSuccess = function (response) {
-    console.debug('Request Successful!', response);
-    return response.data;
-  };
+    console.debug('Request Successful!', response)
+    return response.data
+  }
 
   const onError = function (error) {
-    console.error('Request Failed:', error.config);
+    console.error('Request Failed:', error.config)
 
     if (error.response) {
-      console.error('Status:', error.response.status);
-      console.error('Data:', error.response.data);
-      console.error('Headers:', error.response.headers);
+      console.error(error.response)
     } else {
-      console.error('Error Message:', error.message);
+      console.error('Error Message:', error.message)
     }
 
-    return Promise.reject(error.response || error.message);
-  };
+    return Promise.reject(error.response || error.message)
+  }
 
   return client({
     method,
@@ -30,5 +28,5 @@ export const apiCall = function (method, route, body = null, token = null) {
     data: body,
   })
     .then(onSuccess)
-    .catch(onError);
-};
+    .catch(onError)
+}

@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet-async';
-import styled from 'styled-components/macro';
-import { FilterDiv } from './components/FilterDiv';
-import { PeopleList } from './components/PeopleList';
+import { Helmet } from 'react-helmet-async'
+import styled from 'styled-components/macro'
+import { FilterDiv } from './components/FilterDiv'
+import { PeopleList } from './components/PeopleList'
 
 export const People = () => {
   return (
@@ -15,7 +15,7 @@ export const People = () => {
         <PeopleList />
       </Container>
     </>
-  );
-};
+  )
+}
 
-const Container = styled.div``;
+const Container = styled.div``

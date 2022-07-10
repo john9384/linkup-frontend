@@ -1,5 +1,5 @@
-import { AuthState } from 'app/pages/auth/slice/types';
-import { ThemeState } from 'styles/theme/slice/types';
+import { AuthState } from 'app/pages/auth/slice/types'
+import { ThemeState } from 'styles/theme/slice/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -9,7 +9,7 @@ import { ThemeState } from 'styles/theme/slice/types';
   So, not available always
 */
 export interface RootState {
-  theme?: ThemeState;
-  auth?: AuthState;
+  theme?: ThemeState
+  auth?: AuthState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

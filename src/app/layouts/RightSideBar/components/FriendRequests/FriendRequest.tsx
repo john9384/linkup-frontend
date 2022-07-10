@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { RequestDiv } from './RequestDiv';
-import { dummyUsers } from '../../../../assets/dummyUsers';
+import styled from 'styled-components'
+import { RequestDiv } from './RequestDiv'
+import { dummyUsers } from '../../../../assets/dummyUsers'
 
 export const FriendRequest = () => {
-  const friendRequests = [dummyUsers[0], dummyUsers[1]];
+  const friendRequests = [dummyUsers[0], dummyUsers[1]]
   return (
     <>
       <Head>
@@ -19,8 +19,8 @@ export const FriendRequest = () => {
         />
       ))}
     </>
-  );
-};
+  )
+}
 
 const Head = styled.div`
   width: 100%;
@@ -29,8 +29,8 @@ const Head = styled.div`
   align-items: center;
   margin: 1rem 0;
   padding: 0 1rem;
-`;
-const Title = styled.span``;
+`
+const Title = styled.span``
 
 const Badge = styled.span`
   display: block;
@@ -43,4 +43,4 @@ const Badge = styled.span`
   justify-content: center;
   align-items: center;
   margin-top: -0.5px;
-`;
+`

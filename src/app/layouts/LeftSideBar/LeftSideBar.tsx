@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 // import { Advert } from './components/Advert';
-import { NavMenu } from './components/NavMenu';
-import { UserAccount } from './components/UserAccount';
+import { NavMenu } from './components/NavMenu'
+import { UserAccount } from './components/UserAccount'
 
 export const LeftSideBar = () => {
   return (
@@ -10,10 +10,10 @@ export const LeftSideBar = () => {
       <NavMenu />
       {/* <Advert /> */}
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   flex: 1.8;
   height: 100%;
-`;
+`

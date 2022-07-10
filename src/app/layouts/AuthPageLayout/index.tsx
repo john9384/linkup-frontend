@@ -1,12 +1,12 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import styled from 'styled-components';
-import IllustrationOne from 'app/assets/undraw/illustration1.svg';
-import IllustrationTwo from 'app/assets/undraw/illustration3.svg';
-import IllustrationThree from 'app/assets/undraw/illustration2.svg';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import styled from 'styled-components'
+import IllustrationOne from 'app/assets/undraw/illustration1.svg'
+import IllustrationTwo from 'app/assets/undraw/illustration3.svg'
+import IllustrationThree from 'app/assets/undraw/illustration2.svg'
 
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export const AuthPageLayout = React.memo(({ children }: Props) => {
@@ -30,39 +30,39 @@ export const AuthPageLayout = React.memo(({ children }: Props) => {
         </Container>
       </Page>
     </>
-  );
-});
+  )
+})
 
 const Page = styled.div`
   height: 100vh;
   max-height: 100vh;
-`;
+`
 const Container = styled.div`
   height: 100vh;
   padding: 5rem;
   display: flex;
   align-items: center;
   gap: 10rem;
-`;
+`
 const Right = styled.div`
   width: 40%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 const Left = styled.div`
   flex: 1;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 const IllustrationDiv = styled.div`
   position: relative;
   height: 55rem;
   width: 70rem;
-`;
+`
 const Illustration = styled.img`
   width: 35rem;
   height: 30rem;
@@ -77,7 +77,7 @@ const Illustration = styled.img`
     bottom: 0;
     left: 20rem;
   }
-`;
+`
 const TopBarLeft = styled.div`
   position: fixed;
   top: 5rem;
@@ -87,4 +87,4 @@ const TopBarLeft = styled.div`
   font-weight: 700;
   color: #1778f2;
   padding-left: 5rem;
-`;
+`

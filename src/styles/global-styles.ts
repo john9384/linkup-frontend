@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 /* istanbul ignore next */
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -44,4 +44,4 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
-`;
+`

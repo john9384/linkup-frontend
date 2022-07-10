@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { ContactsItem } from './components/ContactsItem';
-import { dummyUsers } from '../../../../assets/dummyUsers';
+import styled from 'styled-components'
+import { ContactsItem } from './components/ContactsItem'
+import { dummyUsers } from '../../../../assets/dummyUsers'
 export const Contacts = () => {
-  const contacts = dummyUsers.slice(0, 5);
+  const contacts = dummyUsers.slice(0, 5)
   return (
     <Container>
       <Head>
@@ -19,10 +19,10 @@ export const Contacts = () => {
         ))}
       </ContactsList>
     </Container>
-  );
-};
+  )
+}
 
-const Container = styled.div``;
+const Container = styled.div``
 
 const Head = styled.div`
   width: 100%;
@@ -31,8 +31,8 @@ const Head = styled.div`
   align-items: center;
   margin: 1rem 0;
   padding: 0 1rem;
-`;
-const Title = styled.span``;
+`
+const Title = styled.span``
 
 const Badge = styled.span`
   display: block;
@@ -45,7 +45,7 @@ const Badge = styled.span`
   justify-content: center;
   align-items: center;
   margin-top: -0.5px;
-`;
+`
 
 const ContactsList = styled.ul`
   list-style: none;
@@ -54,4 +54,4 @@ const ContactsList = styled.ul`
   background: #ffffff;
   box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-`;
+`

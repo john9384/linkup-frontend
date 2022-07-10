@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PostForm = () => {
   return (
@@ -8,8 +8,8 @@ export const PostForm = () => {
         <PostButtonText>Post</PostButtonText>
       </PostButton>
     </Form>
-  );
-};
+  )
+}
 
 const Form = styled.form`
   width: 100%;
@@ -22,7 +22,7 @@ const Form = styled.form`
   background: #ffffff;
   box-shadow: 0px 4px 20px 2px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-`;
+`
 const Input = styled.input`
   flex: 1;
   height: 40px;
@@ -36,7 +36,7 @@ const Input = styled.input`
     border: none;
     outline: none;
   }
-`;
+`
 const PostButton = styled.button`
   border: none;
   width: 11rem;
@@ -48,7 +48,7 @@ const PostButton = styled.button`
   justify-content: center;
   text-align: center;
   color: #ffffff;
-`;
+`
 
 const PostButtonText = styled.span`
   display: block;
@@ -56,4 +56,4 @@ const PostButtonText = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
-`;
+`

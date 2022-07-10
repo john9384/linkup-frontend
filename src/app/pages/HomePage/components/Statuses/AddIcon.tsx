@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StatusAddIcon = () => {
   return (
     <OuterDiv>
       <InnerDiv>+</InnerDiv>
     </OuterDiv>
-  );
-};
+  )
+}
 
 const OuterDiv = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const OuterDiv = styled.div`
   bottom: 4rem;
   left: 50%;
   transform: translateX(-50%);
-`;
+`
 
 const InnerDiv = styled.div`
   display: flex;
@@ -33,4 +33,4 @@ const InnerDiv = styled.div`
   font-size: 2rem;
   font-weight: 500;
   color: #3477d2;
-`;
+`

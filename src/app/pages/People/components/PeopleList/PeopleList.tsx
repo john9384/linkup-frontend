@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro';
-import { dummyUsers } from 'app/assets/dummyUsers';
+import styled from 'styled-components/macro'
+import { dummyUsers } from 'app/assets/dummyUsers'
 
 export const PeopleList = () => {
   return (
@@ -15,8 +15,8 @@ export const PeopleList = () => {
         </UserCard>
       ))}
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   margin-top: 2rem;
@@ -24,7 +24,7 @@ const Container = styled.div`
   grid-gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   justify-content: space-between;
-`;
+`
 
 const UserCard = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ const UserCard = styled.div`
   &:hover > img {
     transform: scale(1.2);
   }
-`;
+`
 const UserCardImg = styled.img`
   object-fit: cover;
   height: 100%;
@@ -48,7 +48,7 @@ const UserCardImg = styled.img`
   top: 0;
   left: 0;
   transition: all 0.5s;
-`;
+`
 const UserName = styled.div`
   width: 70%;
   text-align: center;
@@ -58,7 +58,7 @@ const UserName = styled.div`
   left: 50%;
   transform: translateX(-50%);
   font-weight: 500;
-`;
+`
 const UserActive = styled.div`
   display: flex;
   justify-content: center;
@@ -72,14 +72,14 @@ const UserActive = styled.div`
   left: 50%;
   transform: translateX(-50%);
   font-weight: 500;
-`;
+`
 const ActiveIcon = styled.span`
   display: block;
   background-color: green;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-`;
+`
 const ActiveText = styled.span`
   color: white;
-`;
+`

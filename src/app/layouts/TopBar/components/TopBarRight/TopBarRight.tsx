@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import AvatarImg from 'app/assets/avatar-3637425__340.png';
-import { Avatar } from './Avatar';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import SearchIcon from '@mui/icons-material/Search';
-import './icon.css';
+import styled from 'styled-components'
+import AvatarImg from 'app/assets/avatar-3637425__340.png'
+import { Avatar } from './Avatar'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
+import SearchIcon from '@mui/icons-material/Search'
+import './icon.css'
 
 export const TopBarRight = () => {
   return (
@@ -20,14 +20,14 @@ export const TopBarRight = () => {
       </Button>
       <Avatar imgSrc={AvatarImg} imgAlt={''} />
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 2rem;
-`;
+`
 
 const Form = styled.form`
   display: flex;
@@ -35,7 +35,7 @@ const Form = styled.form`
   height: 40px;
   border-radius: 10px;
   position: relative;
-`;
+`
 const SearchInput = styled.input`
   position: absolute;
   top: 0p;
@@ -48,7 +48,7 @@ const SearchInput = styled.input`
   border-radius: 10px;
   font-size: 17px;
   padding-left: 50px;
-`;
+`
 
 const SearchIconDiv = styled.div`
   z-index: 100;
@@ -60,7 +60,7 @@ const SearchIconDiv = styled.div`
   justify-content: center;
   align-items: center;
   width: 60px;
-`;
+`
 const Button = styled.button`
   border: none;
   padding-left: 1.5rem;
@@ -74,7 +74,7 @@ const Button = styled.button`
   text-align: center;
   color: #ffffff;
   gap: 0.5rem;
-`;
+`
 
 const ButtonText = styled.span`
   display: block;
@@ -82,4 +82,4 @@ const ButtonText = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
-`;
+`

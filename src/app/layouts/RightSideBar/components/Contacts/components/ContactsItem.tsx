@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Avatar } from './Avatar';
+import React from 'react'
+import styled from 'styled-components'
+import { Avatar } from './Avatar'
 
 interface Props {
-  contactName: string;
-  unreadMessage?: number;
-  contactImg: string;
+  contactName: string
+  unreadMessage?: number
+  contactImg: string
 }
 
 export const ContactsItem = React.memo(
@@ -19,16 +19,16 @@ export const ContactsItem = React.memo(
           <Badge>{unreadMessage}</Badge>
         ) : null}
       </Li>
-    );
+    )
   },
-);
+)
 
 const Li = styled.li`
   margin: 1.4rem 0;
   display: flex;
   align-items: center;
   gap: 2rem;
-`;
+`
 
 const Text = styled.span`
   font-family: 'Inter';
@@ -38,7 +38,7 @@ const Text = styled.span`
   line-height: 17px;
   color: #505d6f;
   flex-grow: 1;
-`;
+`
 
 const Badge = styled.span`
   display: block;
@@ -51,4 +51,4 @@ const Badge = styled.span`
   justify-content: center;
   align-items: center;
   margin-top: -0.5px;
-`;
+`

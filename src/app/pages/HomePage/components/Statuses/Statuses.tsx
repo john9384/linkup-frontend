@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Avatar } from './Avatar';
-import { dummyUsers } from 'app/assets/dummyUsers';
-import { StatusAddIcon } from './AddIcon';
+import styled from 'styled-components'
+import { Avatar } from './Avatar'
+import { dummyUsers } from 'app/assets/dummyUsers'
+import { StatusAddIcon } from './AddIcon'
 
 export const Statuses = () => {
-  const statuses = dummyUsers;
+  const statuses = dummyUsers
   return (
     <Container>
       <StatusCard>
@@ -21,8 +21,8 @@ export const Statuses = () => {
         </StatusCard>
       ))}
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ const Container = styled.div`
   display: flex;
   gap: 1.5rem;
   overflow: scroll;
-`;
+`
 
 const StatusCard = styled.div`
   height: 20rem;
@@ -40,19 +40,19 @@ const StatusCard = styled.div`
   border-radius: 10px;
   overflow: hidden;
   background: linear-gradient(25.33deg, #a1afbb 4.15%, #dee6ea 100%);
-`;
+`
 const StatusAvatar = styled.div`
   position: absolute;
   top: 1rem;
   left: 1rem;
-`;
+`
 const StatusBg = styled.img`
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-`;
+`
 const StatusCardText = styled.p`
   width: 70%;
   text-align: center;
@@ -62,4 +62,4 @@ const StatusCardText = styled.p`
   left: 50%;
   transform: translateX(-50%);
   font-weight: 500;
-`;
+`

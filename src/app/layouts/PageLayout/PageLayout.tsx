@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { LeftSideBar } from '../LeftSideBar';
-import { RightSideBar } from '../RightSideBar';
-import { TopBar } from '../TopBar';
-import { StyleConstants as SC } from 'styles/StyleConstants';
+import React from 'react'
+import styled from 'styled-components/macro'
+import { LeftSideBar } from '../LeftSideBar'
+import { RightSideBar } from '../RightSideBar'
+import { TopBar } from '../TopBar'
+import { StyleConstants as SC } from 'styles/StyleConstants'
 
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export const PageLayout = React.memo(({ children }: Props) => {
@@ -19,13 +19,13 @@ export const PageLayout = React.memo(({ children }: Props) => {
         <RightSideBar />
       </Container>
     </Page>
-  );
-});
+  )
+})
 
 const Page = styled.div`
   height: 100vh;
   max-height: 100vh;
-`;
+`
 const Container = styled.div`
   background-color: transparent;
   display: flex;
@@ -33,7 +33,7 @@ const Container = styled.div`
   padding: 2rem 5rem;
   width: 100vw;
   height: ${SC.LAYOUT.PAGE_BODY_HEIGHT};
-`;
+`
 
 const Main = styled.div`
   height: 100%;
@@ -42,4 +42,4 @@ const Main = styled.div`
   overflow-y: auto;
   padding: 0 1rem;
   padding-bottom: 8rem;
-`;
+`

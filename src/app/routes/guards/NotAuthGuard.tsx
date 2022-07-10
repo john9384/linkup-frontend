@@ -1,9 +1,10 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { authSelector } from '../../pages/auth/slice/selectors';
+import { Navigate, Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { isAuthenticated } from '../../pages/auth/slice/selectors'
+import { useAuthSlice } from 'app/pages/auth/slice'
 
 export const NotAuthGuard = () => {
-  const isAuthenticated = useSelector(authSelector);
-
-  return !isAuthenticated ? <Outlet /> : <Navigate to="/" />;
-};
+  useAuthSlice()
+  const isAuth = useSelector(isAuthenticated)
+  return !isAuth ? <Outlet /> : <Navigate to="/" />
+}

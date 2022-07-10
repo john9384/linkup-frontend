@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Avatar } from './Avatar';
+import React from 'react'
+import styled from 'styled-components'
+import { Avatar } from './Avatar'
 import {
   ButtonPry,
   ButtonSec,
   ButtonText,
-} from '../../../../../components/Button/index';
+} from '../../../../../components/Button/index'
 interface Props {
-  name: string;
-  username: string;
-  avatar: string;
+  name: string
+  username: string
+  avatar: string
 }
 
 export const RequestDiv = React.memo(({ name, username, avatar }: Props) => {
@@ -29,8 +29,8 @@ export const RequestDiv = React.memo(({ name, username, avatar }: Props) => {
         </ButtonSec>
       </CTA>
     </Container>
-  );
-});
+  )
+})
 
 const Container = styled.div`
   width: 100%;
@@ -43,14 +43,14 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-`;
+`
 
 const UserDetailDiv = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
+`
 
 const Name = styled.p`
   font-family: 'Inter';
@@ -59,7 +59,7 @@ const Name = styled.p`
   font-size: 20px;
   line-height: 24px;
   color: #000000;
-`;
+`
 
 const Username = styled.p`
   font-family: 'Inter';
@@ -68,7 +68,7 @@ const Username = styled.p`
   font-size: 12px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.46);
-`;
+`
 
 const CTA = styled.div`
   display: flex;
@@ -78,4 +78,4 @@ const CTA = styled.div`
   button {
     flex-grow: 1;
   }
-`;
+`

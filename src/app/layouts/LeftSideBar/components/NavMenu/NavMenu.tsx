@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import './style.css';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined';
-import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import './style.css'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
+import PhotoOutlinedIcon from '@mui/icons-material/PhotoOutlined'
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined'
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
 
 export const NavMenu = () => {
   return (
@@ -43,8 +43,8 @@ export const NavMenu = () => {
         </NavItem>
       </NavList>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   width: 100%;
@@ -52,7 +52,7 @@ const Container = styled.div`
   background: #ffffff;
   box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
-`;
+`
 
 const NavList = styled.ul`
   height: 100%;
@@ -61,7 +61,7 @@ const NavList = styled.ul`
   flex-direction: column;
   align-items: center;
   padding: 1.5rem 0;
-`;
+`
 
 const NavItem = styled(NavLink)`
   padding: 0 5rem;
@@ -93,7 +93,7 @@ const NavItem = styled(NavLink)`
   &:hover .icon {
     color: #1778f2;
   }
-`;
+`
 
 const NavContent = styled.span`
   text-decoration: none;
@@ -102,7 +102,7 @@ const NavContent = styled.span`
   color: #505d6f;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
   transition: all 0.5s;
-`;
+`
 
 const Text = styled.span`
   display: block;
@@ -112,4 +112,4 @@ const Text = styled.span`
   display: flex;
   align-items: center;
   transition: all 0.5s;
-`;
+`

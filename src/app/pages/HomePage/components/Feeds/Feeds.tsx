@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { avatars } from 'app/assets/imageLinks';
-import { PostCard } from './PostCard';
+import styled from 'styled-components'
+import { avatars } from 'app/assets/imageLinks'
+import { PostCard } from './PostCard'
 
 export const Feeds = () => {
   const data = [
@@ -51,14 +51,14 @@ export const Feeds = () => {
         'https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJhbmRvbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
       ],
     },
-  ];
+  ]
   return (
     <Container>
       {data.map(feed => (
         <PostCard {...feed} />
       ))}
     </Container>
-  );
-};
+  )
+}
 
-const Container = styled.div``;
+const Container = styled.div``

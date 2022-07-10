@@ -1,19 +1,19 @@
-import styled from 'styled-components';
-import { ImageGrid } from './ImageGrid';
-import { Avatar } from './Avatar';
-import './ReactionDiv/icon.css';
+import styled from 'styled-components'
+import { ImageGrid } from './ImageGrid'
+import { Avatar } from './Avatar'
+import './ReactionDiv/icon.css'
 
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import ShareIcon from '@mui/icons-material/Share';
-import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
+import ShareIcon from '@mui/icons-material/Share'
+import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded'
 
 interface Props {
-  avatar: string;
-  name: string;
-  username: string;
-  postText: string;
-  imageLinks?: string[];
+  avatar: string
+  name: string
+  username: string
+  postText: string
+  imageLinks?: string[]
 }
 export const PostCard = (props: Props) => {
   return (
@@ -44,8 +44,8 @@ export const PostCard = (props: Props) => {
         </ReactionButton>
       </ReactionDiv>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   background: #ffffff;
@@ -53,17 +53,17 @@ const Container = styled.div`
   border-radius: 10px;
   padding: 2rem;
   margin-bottom: 2rem;
-`;
+`
 const PostHead = styled.div`
   display: flex;
   gap: 2rem;
-`;
+`
 const UserDetailDiv = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
+`
 
 const Name = styled.p`
   font-family: 'Inter';
@@ -72,7 +72,7 @@ const Name = styled.p`
   font-size: 20px;
   line-height: 24px;
   color: #000000;
-`;
+`
 
 const Username = styled.p`
   font-family: 'Inter';
@@ -81,7 +81,7 @@ const Username = styled.p`
   font-size: 12px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.46);
-`;
+`
 const PostTextDiv = styled.p`
   width: 100%;
   margin: 2rem auto;
@@ -93,15 +93,15 @@ const PostTextDiv = styled.p`
   display: flex;
   align-items: center;
   color: #8a8a8a;
-`;
+`
 
 const ReactionDiv = styled.div`
   display: flex;
   margin-top: 2rem;
-`;
+`
 const ReactionButton = styled.div`
   &:last-child {
     width: fit-content;
     margin-left: auto;
   }
-`;
+`

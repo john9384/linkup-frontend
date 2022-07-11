@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { ButtonPry, ButtonSec, ButtonText } from 'app/components/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { authActions } from '../../slice'
-import { errorSelector, userSelector } from '../../slice/selectors'
+import { authActions } from '../../../../slices/auth'
+import { errorSelector, userSelector } from '../../../../slices/auth/selectors'
 
 interface ISignup {
   email: string

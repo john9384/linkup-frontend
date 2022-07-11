@@ -5,7 +5,7 @@ import { ButtonPry, ButtonSec, ButtonText } from 'app/components/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import { CodeFormField } from '../../common/CodeFormField/index'
 import { useDispatch } from 'react-redux'
-import { authActions } from '../../slice'
+import { authActions } from '../../../../slices/auth'
 
 export function VerifyResetToken() {
   const dispatch = useDispatch()

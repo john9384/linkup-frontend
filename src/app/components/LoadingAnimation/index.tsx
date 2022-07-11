@@ -5,9 +5,7 @@ import './icon.css'
 export const LoadingAnimation = () => {
   return (
     <Page>
-
-        <div className="lds-hourglass"></div>
-
+      <div className="lds-hourglass"></div>
     </Page>
   )
 }
@@ -20,10 +18,7 @@ const Page = styled.div`
   left: 0;
   background-color: rgba(128, 128, 128, 0.5);
   z-index: 9999;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
-
-
-//  #1778f2

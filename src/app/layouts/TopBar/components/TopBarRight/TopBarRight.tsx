@@ -6,7 +6,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import SearchIcon from '@mui/icons-material/Search'
 import './icon.css'
 import { useDispatch } from 'react-redux'
-import { authActions } from 'app/pages/auth/slice'
+import { authActions } from 'app/slices/auth'
 import { useNavigate } from 'react-router-dom'
 
 export const TopBarRight = () => {

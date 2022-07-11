@@ -1,5 +1,6 @@
-import { AuthState } from 'app/pages/auth/slice/types'
+import { AuthState } from 'app/slices/auth/types'
 import { ThemeState } from 'styles/theme/slice/types'
+import { ProfileState } from '../app/slices/profileSlice/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -11,5 +12,6 @@ import { ThemeState } from 'styles/theme/slice/types'
 export interface RootState {
   theme?: ThemeState
   auth?: AuthState
+  profile?: ProfileState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

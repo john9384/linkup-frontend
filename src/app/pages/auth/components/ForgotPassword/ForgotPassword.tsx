@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet-async'
 import styled from 'styled-components'
 import { ButtonPry, ButtonSec, ButtonText } from 'app/components/Button'
 import { Link, useNavigate } from 'react-router-dom'
-import { authActions } from '../../slice'
+import { authActions } from '../../../../slices/auth'
 import { useDispatch, useSelector } from 'react-redux'
-import { errorSelector } from '../../slice/selectors'
+import { errorSelector } from '../../../../slices/auth/selectors'
 
 interface IForgotPassword {
   email: string
@@ -111,7 +111,7 @@ const Form = styled.form`
 const FormField = styled.div`
   height: 5rem;
   width: 40rem;
-  background-color: rgba(225, 225, 225, .2);
+  background-color: rgba(225, 225, 225, 0.2);
   border-radius: 10px;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.01);
   padding-left: 2rem;

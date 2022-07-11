@@ -68,9 +68,10 @@ const NavItem = styled(NavLink)`
   width: 100%;
   transition: all 0.2s;
 
-  &:last-child > a {
-    border-bottom: 0px;
+  &:last-child > span {
+    border-bottom: 0;
   }
+
   &:hover {
     background-color: #f4f6fa;
   }
@@ -86,9 +87,11 @@ const NavItem = styled(NavLink)`
     top: 0;
     left: 0;
   }
+
   &:hover:after {
     background-color: #1778f2;
   }
+
   &:hover span,
   &:hover .icon {
     color: #1778f2;

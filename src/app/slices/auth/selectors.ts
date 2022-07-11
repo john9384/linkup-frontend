@@ -1,4 +1,4 @@
-import { RootState } from '../../../../types/RootState'
+import { RootState } from '../../../types/RootState'
 import { initialState } from './index'
 import { createSelector } from '@reduxjs/toolkit'
 

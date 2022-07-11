@@ -1,10 +1,7 @@
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { AuthState } from './types'
 import { PayloadAction } from '@reduxjs/toolkit'
-import {
-  useInjectReducer,
-  useInjectSaga,
-} from '../../../../utils/redux-injectors'
+import { useInjectReducer, useInjectSaga } from '../../../utils/redux-injectors'
 import authSaga from './saga'
 
 export const initialState: AuthState = {
@@ -71,6 +68,10 @@ const slice = createSlice({
     },
 
     resetUserPassword(state, action: PayloadAction<any>) {
+      state.loading = true
+    },
+
+    getCurrentUser(state) {
       state.loading = true
     },
 

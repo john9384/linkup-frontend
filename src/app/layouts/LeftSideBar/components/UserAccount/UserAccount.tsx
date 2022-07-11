@@ -2,14 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 import { Avatar } from './components/Avatar'
 import AvatarImg from 'app/assets/avatar-3637425__340.png'
+import { IUser } from 'app/slices/profileSlice/types'
+import { LoadingIcon } from '../../../../components/LoadingIcon/index'
 
-export const UserAccount = React.memo(() => {
+interface Props {
+  user: IUser
+  loading: boolean
+}
+export const UserAccount = React.memo(({ user, loading }: Props) => {
   return (
     <Container>
       <Avatar imgSrc={AvatarImg} />
       <UserDetailDiv>
-        <Name>John Doe</Name>
-        <Username>@johndoe</Username>
+        <Name>
+          {loading ? <LoadingIcon /> : `${user.firstname} ${user.lastname}`}
+        </Name>
+        <Username>{loading ? <LoadingIcon /> : user.username}</Username>
       </UserDetailDiv>
     </Container>
   )

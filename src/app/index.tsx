@@ -7,8 +7,8 @@ import { GlobalStyle } from 'styles/global-styles'
 import { AppRoutes } from 'app/routes'
 import { LoadingAnimation } from './components/LoadingAnimation'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadingSelector } from './pages/auth/slice/selectors'
-import { authActions } from './pages/auth/slice'
+import { loadingSelector } from './slices/auth/selectors'
+import { authActions } from './slices/auth'
 import ErrorBoundary from './ErrorBoundary'
 
 export function App() {

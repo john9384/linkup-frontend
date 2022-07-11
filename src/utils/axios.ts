@@ -2,9 +2,14 @@ import axios from 'axios'
 
 const client = axios.create({
   baseURL: 'http://localhost:4000/api/v1',
+
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('ltk')}`,
+  },
 })
 
-export const apiCall = function (method, route, body = null, token = null) {
+export const apiCall = function ({ method, route, body = null, token = null }) {
   const onSuccess = function (response) {
     console.debug('Request Successful!', response)
     return response.data
@@ -24,7 +29,9 @@ export const apiCall = function (method, route, body = null, token = null) {
     // return Promise.reject(error.response || error.message)
     // return error.response.data
   }
-
+  if (token) {
+    client.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  }
   return client({
     method,
     url: route,

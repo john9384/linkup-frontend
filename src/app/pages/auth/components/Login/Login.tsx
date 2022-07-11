@@ -149,7 +149,7 @@ const Form = styled.form`
 const FormField = styled.div`
   height: 5rem;
   width: 40rem;
-  background-color: '#E1E1E1';
+  background-color: rgba(225, 225, 225, .2);
   border-radius: 10px;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.01);
   padding-left: 2rem;
@@ -195,6 +195,5 @@ const BtnText = styled.span`
 const Span = styled(Link)`
   color: #1778f2;
   align-self: flex-end;
-  margin: 1rem 0;
-  margin-right: 1rem;
+  margin: 1rem 1rem 1rem 0;
 `

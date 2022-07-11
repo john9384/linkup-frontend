@@ -10,7 +10,7 @@ function* signup(data) {
     yield put(authActions.setUser(res.data))
     navigate('/auth/verify-email')
   } catch (error: any) {
-    yield put(authActions.setError(error.data.data))
+    yield put(authActions.setError(error.error))
   }
 }
 
@@ -22,7 +22,7 @@ function* verifyEmail(data) {
     yield put(authActions.setUser(res.data))
     navigate('/auth/login')
   } catch (error: any) {
-    yield put(authActions.setError(error.data.data))
+    yield put(authActions.setError(error.error))
   }
 }
 
@@ -35,7 +35,7 @@ function* login(data) {
     yield put(authActions.setAuth(res.data.token))
     navigate('/')
   } catch (error: any) {
-    yield put(authActions.setError(error.data.data))
+    yield put(authActions.setError(error.error))
   }
 }
 
@@ -47,7 +47,7 @@ function* forgotPassword(data) {
     yield put(authActions.setUser({ email: res.data.email }))
     navigate('/auth/confirm-reset')
   } catch (error: any) {
-    yield put(authActions.setError(error.data.data))
+    yield put(authActions.setError(error.error))
   }
 }
 
@@ -59,7 +59,7 @@ function* confirmResetToken(data) {
     yield put(authActions.setUser(res.data))
     navigate('/auth/reset-password')
   } catch (error: any) {
-    yield put(authActions.setError(error.data.data))
+    yield put(authActions.setError(error.error))
   }
 }
 
@@ -68,9 +68,10 @@ function* resetPassword(data) {
   try {
     const { formData, navigate } = data.payload
     yield call(apiCall, 'POST', '/auth/reset-password', formData)
+    yield put(authActions.setLoadingState(false))
     navigate('/auth/login')
   } catch (error: any) {
-    yield put(authActions.setError(error.data.data))
+    yield put(authActions.setError(error.error))
   }
 }
 

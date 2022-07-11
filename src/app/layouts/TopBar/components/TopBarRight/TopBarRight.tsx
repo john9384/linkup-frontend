@@ -1,11 +1,26 @@
+import React from 'react'
 import styled from 'styled-components'
 import AvatarImg from 'app/assets/avatar-3637425__340.png'
 import { Avatar } from './Avatar'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import SearchIcon from '@mui/icons-material/Search'
 import './icon.css'
+import { useDispatch } from 'react-redux'
+import { authActions } from 'app/pages/auth/slice'
+import { useNavigate } from 'react-router-dom'
 
 export const TopBarRight = () => {
+  const [dropdownState, setDropdownState] = React.useState(false)
+  const toggleDropdown = () => {
+    setDropdownState(!dropdownState)
+  }
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const logout = () => {
+    dispatch(authActions.logoutUser())
+    navigate('/auth/login')
+  }
+
   return (
     <Container>
       <Form>
@@ -18,7 +33,14 @@ export const TopBarRight = () => {
         <AddCircleOutlineIcon />
         <ButtonText>Create</ButtonText>
       </Button>
-      <Avatar imgSrc={AvatarImg} imgAlt={''} />
+      <AvatarWrapper onClick={toggleDropdown}>
+        <Avatar imgSrc={AvatarImg} imgAlt={''} />
+      </AvatarWrapper>
+      {dropdownState && (
+        <Dropdown>
+          <DropdownItem onClick={logout}>Signout</DropdownItem>
+        </Dropdown>
+      )}
     </Container>
   )
 }
@@ -27,6 +49,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 2rem;
+  position: relative;
 `
 
 const Form = styled.form`
@@ -82,4 +105,21 @@ const ButtonText = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
+`
+const AvatarWrapper = styled.div``
+const Dropdown = styled.div`
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  padding: 2rem;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.05);
+`
+const DropdownItem = styled.div`
+  padding: 1rem 2rem;
+  border: 1px solid grey;
+  border-radius: 10px;
+  &:hover {
+    background-color: #f4f6fa;
+  }
 `

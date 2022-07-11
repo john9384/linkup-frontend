@@ -19,7 +19,10 @@ export const apiCall = function (method, route, body = null, token = null) {
       console.error('Error Message:', error.message)
     }
 
-    return Promise.reject(error.response || error.message)
+    throw error.response.data
+
+    // return Promise.reject(error.response || error.message)
+    // return error.response.data
   }
 
   return client({

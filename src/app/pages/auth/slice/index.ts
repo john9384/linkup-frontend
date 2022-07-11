@@ -12,7 +12,7 @@ export const initialState: AuthState = {
   authToken: null,
   loading: false,
   user: {},
-  error: {},
+  error: null,
 }
 
 const slice = createSlice({
@@ -21,6 +21,10 @@ const slice = createSlice({
   reducers: {
     setAuthenticatedState(state, action: PayloadAction<boolean>) {
       state.isAuthenticated = action.payload
+    },
+
+    setLoadingState(state, action: PayloadAction<boolean>) {
+      state.loading = action.payload
     },
 
     setAuthentication(state, action: PayloadAction<any>) {
@@ -70,7 +74,7 @@ const slice = createSlice({
       state.loading = true
     },
 
-    logoutUser(state, action: PayloadAction<any>) {
+    logoutUser(state) {
       state.loading = true
       localStorage.removeItem('ltk')
       state.isAuthenticated = false

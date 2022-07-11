@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../slice'
 import { errorSelector } from '../../slice/selectors'
+import { AlertDiv } from 'app/components/Alert'
 
 interface ISignup {
   firstname: string
@@ -19,7 +20,7 @@ interface ISignup {
 export function Signup() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const errors = useSelector(errorSelector)
+  const error = useSelector(errorSelector)
   const [formState, setFormState] = React.useState<ISignup>({
     firstname: '',
     lastname: '',
@@ -51,6 +52,10 @@ export function Signup() {
         navigate,
       }),
     )
+  }
+
+  const clearErrorState = e => {
+    dispatch(authActions.setError(null))
   }
 
   React.useEffect(() => {
@@ -139,6 +144,13 @@ export function Signup() {
           </ServiceButton>
         </OAuthButtons>
       </Container>
+      {error && (
+        <AlertDiv
+          type="error"
+          message={error.message}
+          unmountMethod={clearErrorState}
+        />
+      )}
     </>
   )
 }

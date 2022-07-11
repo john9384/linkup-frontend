@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { authActions } from '../../slice'
 import { useDispatch, useSelector } from 'react-redux'
 import { errorSelector } from '../../slice/selectors'
+import { AlertDiv } from '../../../../components/Alert'
 
 interface ILogin {
   email: string
@@ -17,7 +18,7 @@ interface ILogin {
 export function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const errors = useSelector(errorSelector)
+  const error = useSelector(errorSelector)
   const [formState, setFormState] = React.useState<ILogin>({
     email: '',
     password: '',
@@ -47,6 +48,10 @@ export function Login() {
         navigate,
       }),
     )
+  }
+
+  const clearErrorState = e => {
+    dispatch(authActions.setError(null))
   }
 
   React.useEffect(() => {
@@ -103,6 +108,13 @@ export function Login() {
           </ServiceButton>
         </OAuthButtons>
       </Container>
+      {error && (
+        <AlertDiv
+          type="error"
+          message={error.message}
+          unmountMethod={clearErrorState}
+        />
+      )}
     </>
   )
 }

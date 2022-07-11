@@ -9,6 +9,7 @@ import { LoadingAnimation } from './components/LoadingAnimation'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadingSelector } from './pages/auth/slice/selectors'
 import { authActions } from './pages/auth/slice'
+import ErrorBoundary from './ErrorBoundary'
 
 export function App() {
   const { i18n } = useTranslation()
@@ -36,7 +37,9 @@ export function App() {
         <meta name="description" content="A Social app" />
       </Helmet>
       <React.Fragment>
-        <AppRoutes />
+        <ErrorBoundary>
+          <AppRoutes />
+        </ErrorBoundary>
       </React.Fragment>
       {loading && <LoadingAnimation />}
       <GlobalStyle />

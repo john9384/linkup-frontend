@@ -3,23 +3,31 @@ import styled from 'styled-components'
 import { Avatar } from './components/Avatar'
 import AvatarImg from 'app/assets/avatar-3637425__340.png'
 import { IUser } from 'app/slices/profileSlice/types'
+import { useSelector } from 'react-redux'
+import { loadingSelector } from 'app/slices/auth/selectors'
 import { LoadingIcon } from '../../../../components/LoadingIcon/index'
-
 interface Props {
   user: IUser
-  loading: boolean
 }
-export const UserAccount = React.memo(({ user, loading }: Props) => {
+export const UserAccount = React.memo(({ user }: Props) => {
+  const loading = useSelector(loadingSelector)
+
+  if (loading)
+    return (
+      <Container>
+        <LoadingIcon />
+      </Container>
+    )
   return (
-    <Container>
-      <Avatar imgSrc={AvatarImg} />
-      <UserDetailDiv>
-        <Name>
-          {loading ? <LoadingIcon /> : `${user.firstname} ${user.lastname}`}
-        </Name>
-        <Username>{loading ? <LoadingIcon /> : user.username}</Username>
-      </UserDetailDiv>
-    </Container>
+    !loading && (
+      <Container>
+        <Avatar imgSrc={AvatarImg} />
+        <UserDetailDiv>
+          <Name>{`${user.firstname} ${user.lastname}`}</Name>
+          <Username>{user.username}</Username>
+        </UserDetailDiv>
+      </Container>
+    )
   )
 })
 

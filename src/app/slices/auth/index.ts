@@ -27,6 +27,7 @@ const slice = createSlice({
     setAuthentication(state, action: PayloadAction<any>) {
       state.isAuthenticated = action.payload.isAuthenticated
       state.authToken = action.payload.token
+      state.loading = false
     },
 
     setAuth(state, action: PayloadAction<string>) {
@@ -80,8 +81,8 @@ const slice = createSlice({
       localStorage.removeItem('ltk')
       state.isAuthenticated = false
       state.authToken = null
-      state.user = {}
-      state.error = {}
+      state.user = null
+      state.error = null
       state.loading = false
     },
   },

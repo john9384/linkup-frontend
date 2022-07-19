@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { BrowserRouter } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import axios from 'axios'
 
 import { GlobalStyle } from 'styles/global-styles'
 import { AppRoutes } from 'app/routes'
@@ -16,10 +17,18 @@ export function App() {
   const dispatch = useDispatch()
   const loading = useSelector(loadingSelector)
 
-  const setAuthentication = () => {
+  const setAuthentication = async () => {
     const token = localStorage.getItem('ltk')
-    if (token) {
+    const payload = await axios.get('http://localhost:4000/api/v1/auth/user', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+
+    if (payload.data.success) {
       dispatch(authActions.setAuthentication({ isAuthenticated: true, token }))
+    } else {
+      dispatch(authActions.setAuthentication({ isAuthenticated: false }))
     }
   }
 

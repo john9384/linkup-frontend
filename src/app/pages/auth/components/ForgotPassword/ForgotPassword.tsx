@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { authActions } from '../../../../slices/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { errorSelector } from '../../../../slices/auth/selectors'
-
+import { AlertDiv } from '../../../../components/Alert'
 interface IForgotPassword {
   email: string
 }
@@ -14,7 +14,7 @@ interface IForgotPassword {
 export function ForgotPassword() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const errors = useSelector(errorSelector)
+  const error = useSelector(errorSelector)
   const [formState, setFormState] = React.useState<IForgotPassword>({
     email: '',
   })
@@ -42,6 +42,10 @@ export function ForgotPassword() {
         navigate,
       }),
     )
+  }
+
+  const clearErrorState = e => {
+    dispatch(authActions.setError(null))
   }
 
   React.useEffect(() => {
@@ -77,6 +81,13 @@ export function ForgotPassword() {
           </SubmitButton>
         </Form>
       </Container>
+      {error && (
+        <AlertDiv
+          type="error"
+          message={error.message}
+          unmountMethod={clearErrorState}
+        />
+      )}
     </>
   )
 }

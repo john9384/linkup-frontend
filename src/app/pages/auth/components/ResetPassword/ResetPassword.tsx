@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../../../slices/auth'
 import { errorSelector, userSelector } from '../../../../slices/auth/selectors'
-
+import { AlertDiv } from '../../../../components/Alert'
 interface ISignup {
   email: string
   newPassword: string
@@ -16,7 +16,7 @@ interface ISignup {
 export function ResetPassword() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const errors = useSelector(errorSelector)
+  const error = useSelector(errorSelector)
   const { email: verifiedTokenEmail } = useSelector(userSelector)
 
   if (!verifiedTokenEmail) {
@@ -53,6 +53,10 @@ export function ResetPassword() {
         navigate,
       }),
     )
+  }
+
+  const clearErrorState = e => {
+    dispatch(authActions.setError(null))
   }
 
   React.useEffect(() => {
@@ -97,6 +101,13 @@ export function ResetPassword() {
           </SubmitButton>
         </Form>
       </Container>
+      {error && (
+        <AlertDiv
+          type="error"
+          message={error.message}
+          unmountMethod={clearErrorState}
+        />
+      )}
     </>
   )
 }

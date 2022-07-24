@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../../../slices/auth'
 import { errorSelector } from '../../../../slices/auth/selectors'
 import { AlertDiv } from 'app/components/Alert'
+import { GoogleButton } from '../../common/OAuthButtons/Google'
 
 interface ISignup {
   firstname: string
@@ -134,10 +135,7 @@ export function Signup() {
           <Span to="#">Privacy Policy</Span>.
         </InfoSection>
         <OAuthButtons>
-          <ServiceButton>
-            <BtnIcon src={GoogleIcon}></BtnIcon>
-            <BtnText>Signup with google</BtnText>
-          </ServiceButton>
+          <GoogleButton />
           <ServiceButton>
             <BtnIcon src={FacebookIcon}></BtnIcon>
             <BtnText>Signup with facebook</BtnText>

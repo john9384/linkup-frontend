@@ -4,23 +4,30 @@ import styled from 'styled-components'
 import { ButtonPry, ButtonSec, ButtonText } from 'app/components/Button'
 import { Link, useNavigate } from 'react-router-dom'
 import { CodeFormField } from '../../common/CodeFormField/index'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { errorSelector } from '../../../../slices/auth/selectors'
 import { authActions } from '../../../../slices/auth'
+import { AlertDiv } from '../../../../components/Alert'
 
 export function VerifyResetToken() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [code, setCode] = React.useState('')
+  const error = useSelector(errorSelector)
 
   const verifyToken = e => {
     e.preventDefault()
-    console.log(code)
+
     dispatch(
       authActions.verifyPasswordResetToken({
         formData: { token: code },
         navigate,
       }),
     )
+  }
+
+  const clearErrorState = e => {
+    dispatch(authActions.setError(null))
   }
   return (
     <>
@@ -44,6 +51,13 @@ export function VerifyResetToken() {
           </SubmitButton>
         </Form>
       </Container>
+      {error && (
+        <AlertDiv
+          type="error"
+          message={error.message}
+          unmountMethod={clearErrorState}
+        />
+      )}
     </>
   )
 }

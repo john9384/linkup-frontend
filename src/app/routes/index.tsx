@@ -19,7 +19,7 @@ import { UserSettings } from 'app/pages/UserSettings'
 
 interface Props {}
 
-export const AppRoutes = memo((props: Props) => {
+export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/auth/" element={<NotAuthGuard />}>
@@ -128,4 +128,4 @@ export const AppRoutes = memo((props: Props) => {
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
-})
+}

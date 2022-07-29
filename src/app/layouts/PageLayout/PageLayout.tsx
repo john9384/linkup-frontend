@@ -39,7 +39,9 @@ const Main = styled.div`
   height: 100%;
   flex: 4.5;
   max-width: 52%;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   padding: 0 1rem;
   padding-bottom: 8rem;
+  width: 60px;
+  margin: 60px auto;
 `

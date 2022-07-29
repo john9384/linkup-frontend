@@ -11,8 +11,8 @@ export const Statuses = () => {
         <StatusAddIcon />
         <StatusCardText>Add Story</StatusCardText>
       </StatusCard>
-      {statuses.map(status => (
-        <StatusCard>
+      {statuses.map((status, index) => (
+        <StatusCard key={index}>
           <StatusBg src={status.bgImg} />
           <StatusAvatar>
             <Avatar imgSrc={status.avatar} imgAlt="" />

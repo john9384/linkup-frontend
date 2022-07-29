@@ -1,10 +1,49 @@
+import React from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { postActions } from 'app/slices/posts'
 
 export const PostForm = () => {
+  const dispatch = useDispatch()
+
+  const [formState, setFormState] = React.useState({
+    content: '',
+  })
+  const [submitDisabled, setSubmitDisabled] = React.useState<boolean>(true)
+
+  const handleChange = (e: any) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value })
+  }
+
+  const submitPost = e => {
+    e.preventDefault()
+    dispatch(postActions.createPost(formState))
+    setFormState({ content: '' })
+  }
+
+  const checkFormComplete = () => {
+    for (const key in formState) {
+      if (formState[key] === '') {
+        setSubmitDisabled(true)
+        return
+      }
+    }
+    setSubmitDisabled(false)
+  }
+
+  React.useEffect(() => {
+    checkFormComplete()
+  })
+
   return (
     <Form>
-      <Input placeholder="What is on your mind, John Doe?" />
-      <PostButton>
+      <Input
+        placeholder="What is on your mind, John Doe?"
+        name="content"
+        value={formState.content}
+        onChange={handleChange}
+      />
+      <PostButton disabled={submitDisabled} onClick={submitPost}>
         <PostButtonText>Post</PostButtonText>
       </PostButton>
     </Form>

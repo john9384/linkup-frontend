@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import { Feeds } from './components/Feeds'
 import { PostForm } from './components/PostForm'
 import { Statuses } from './components/Statuses'
+import { usePostSlice } from '../../slices/posts/index'
 
 export function HomePage() {
+  usePostSlice()
   return (
     <>
       <Helmet>

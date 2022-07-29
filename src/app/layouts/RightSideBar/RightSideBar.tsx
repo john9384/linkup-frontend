@@ -14,4 +14,8 @@ export const RightSideBar = () => {
 const Container = styled.div`
   flex: 1.8;
   height: 100%;
+  position: fixed;
+  top: 60px;
+  right: 5rem;
+  width: 20vw;
 `

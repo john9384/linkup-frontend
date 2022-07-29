@@ -2,33 +2,30 @@ import styled from 'styled-components'
 import { ImageGrid } from './ImageGrid'
 import { Avatar } from './Avatar'
 import './ReactionDiv/icon.css'
-
+import { avatars } from 'app/assets/imageLinks'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import ShareIcon from '@mui/icons-material/Share'
 import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded'
 
 interface Props {
-  avatar: string
-  name: string
-  username: string
-  postText: string
-  imageLinks?: string[]
+  user: any
+  content: string
+  images?: string[]
 }
 export const PostCard = (props: Props) => {
+  const { user, content, images } = props
   return (
     <Container>
       <PostHead>
-        <Avatar imgSrc={props.avatar} />
+        <Avatar imgSrc={avatars[0]} />
         <UserDetailDiv>
-          <Name>{props.name}</Name>
-          <Username>@{props.username}</Username>
+          <Name>{user.fullname}</Name>
+          <Username>@{user.username || ''}</Username>
         </UserDetailDiv>
       </PostHead>
-      <PostTextDiv>{props.postText}</PostTextDiv>
-      {props.imageLinks && props.imageLinks.length > 0 && (
-        <ImageGrid imageLinks={props.imageLinks} />
-      )}
+      <PostTextDiv>{content}</PostTextDiv>
+      {images && images.length > 0 && <ImageGrid imageLinks={images} />}
       <ReactionDiv>
         <ReactionButton>
           <FavoriteBorderIcon className="icon" />

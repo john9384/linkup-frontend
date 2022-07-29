@@ -11,18 +11,18 @@ export const ImageGrid = ({ imageLinks }: Props) => {
 
   return (
     <Container>
-      {links.map(link => {
+      {links.map((link, index) => {
         switch (imageLinks.length) {
           case 1:
-            return <ImgDivBasic link={link} />
+            return <ImgDivBasic key={index} link={link} />
           case 2:
-            return <ImgDivBasic link={link} />
+            return <ImgDivBasic key={index} link={link} />
           case 3:
-            return <ImgDivTreble link={link} />
+            return <ImgDivTreble key={index} link={link} />
           case 4:
-            return <ImgDivQuart link={link} />
+            return <ImgDivQuart key={index} link={link} />
           default:
-            return <ImgDivQuart link={link} />
+            return <ImgDivQuart key={index} link={link} />
         }
       })}
     </Container>

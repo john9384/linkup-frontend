@@ -27,6 +27,7 @@ const slice = createSlice({
     setAuthentication(state, action: PayloadAction<any>) {
       state.isAuthenticated = action.payload.isAuthenticated
       state.authToken = action.payload.token
+      state.user = action.payload.user
       state.loading = false
     },
 

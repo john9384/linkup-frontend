@@ -25,6 +25,9 @@ export const LeftSideBar = () => {
 }
 
 const Container = styled.div`
+  position: fixed;
+  top: 80px;
+  width: 20vw;
   flex: 1.8;
   height: 100%;
 `

@@ -10,8 +10,9 @@ export const Contacts = () => {
         <Badge>5</Badge>
       </Head>
       <ContactsList>
-        {contacts.map(contact => (
+        {contacts.map((contact, index) => (
           <ContactsItem
+            key={index}
             contactName={contact.name}
             contactImg={contact.avatar}
             unreadMessage={contact.unreadMessage}

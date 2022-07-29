@@ -5,17 +5,20 @@ import AvatarImg from 'app/assets/avatar-3637425__340.png'
 import { IUser } from 'app/slices/profileSlice/types'
 import { useSelector } from 'react-redux'
 import { loadingSelector } from 'app/slices/auth/selectors'
-import { LoadingIcon } from '../../../../components/LoadingIcon/index'
 interface Props {
   user: IUser
 }
 export const UserAccount = React.memo(({ user }: Props) => {
   const loading = useSelector(loadingSelector)
 
-  if (loading)
+  if (loading || user == null)
     return (
       <Container>
-        <LoadingIcon />
+        <AvatarSkeleton />
+        <UserDetailDiv>
+          <NameSkeleton />
+          <UsernameSkeleton />
+        </UserDetailDiv>
       </Container>
     )
   return (
@@ -66,4 +69,22 @@ const Username = styled.p`
   font-size: 12px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.46);
+`
+
+const AvatarSkeleton = styled.div`
+  width: 5rem;
+  height: 5rem;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  background-color: grey;
+`
+const NameSkeleton = styled.div`
+  background-color: grey;
+  height: 10px;
+  width: 150px;
+`
+const UsernameSkeleton = styled.div`
+  background-color: grey;
+  height: 7px;
+  width: 100px;
 `

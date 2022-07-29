@@ -12,14 +12,17 @@ export const TopBar = () => {
 }
 
 const Container = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   height: ${SC.LAYOUT.NAV_BAR_HEIGHT};
   margin: 0;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
   padding: 0 5rem;
+  z-index: 1000;
 `
 
 const TopBarLeft = styled.div`

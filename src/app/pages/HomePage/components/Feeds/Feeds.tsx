@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { PostCard } from './PostCard'
 import { PostCardSkeleton } from './PostCardSkeleton'
 import useFetchPostList from 'hooks/useFetchPosts'
+import { LoadingIcon } from '../../../../components/LoadingIcon/index'
 
 export const Feeds = () => {
   const [pageNumber, setPageNumber] = React.useState(0)
@@ -24,14 +25,13 @@ export const Feeds = () => {
   )
 
   if (loading || posts == null) {
-    return <PostCardSkeleton />
+    return <LoadingIcon />
   }
 
   return (
     <Container>
       {posts.map((post, index) => {
         if (posts.length === index + 1) {
-          console.log('hello there')
           return (
             <div ref={lastElementRef}>
               <PostCard key={index} {...post} />

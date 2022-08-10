@@ -41,7 +41,6 @@ export function Login() {
 
   const loginUser = e => {
     e.preventDefault()
-    console.log(formState)
     dispatch(
       authActions.loginUser({
         formData: formState,

@@ -6,18 +6,14 @@ import styled from 'styled-components/macro'
 import { NavMenu } from './components/NavMenu'
 import { UserAccount } from './components/UserAccount'
 import { authActions } from '../../slices/auth'
+import useFetchUser from "../../../hooks/useFetchUser";
 
 export const LeftSideBar = () => {
-  const user = useSelector(userSelector)
-  const dispatch = useDispatch()
-
-  React.useEffect(() => {
-    dispatch(authActions.getCurrentUser())
-  }, [dispatch])
+  const { loading, user } = useFetchUser()
 
   return (
     <Container>
-      <UserAccount user={user} />
+      <UserAccount user={user} loading={loading} />
       <NavMenu />
       {/* <Advert /> */}
     </Container>

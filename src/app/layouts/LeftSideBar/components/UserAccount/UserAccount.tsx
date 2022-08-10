@@ -6,10 +6,11 @@ import { IUser } from 'app/slices/profileSlice/types'
 import { useSelector } from 'react-redux'
 import { loadingSelector } from 'app/slices/auth/selectors'
 interface Props {
+  loading: boolean
   user: IUser
 }
-export const UserAccount = React.memo(({ user }: Props) => {
-  const loading = useSelector(loadingSelector)
+export const UserAccount = React.memo(({ loading, user }: Props) => {
+  // const loading = useSelector(loadingSelector)
 
   if (loading || user == null)
     return (

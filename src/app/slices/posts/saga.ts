@@ -31,7 +31,41 @@ function* fetchPosts() {
   }
 }
 
+function* likePost(data) {
+  yield delay(100)
+  try {
+    const { postId } = data.payload
+    yield call(apiCall, {
+      method: 'POST',
+      route: `/posts/like/${postId}`,
+    })
+
+    postActions.setLoading(false)
+  } catch (error: any) {
+    yield put(postActions.setError(error.error))
+  }
+}
+
+function* unlikePost(data) {
+  yield delay(100)
+  try {
+    const { postId } = data.payload
+    yield call(apiCall, {
+      method: 'POST',
+      route: `/posts/unlike/${postId}`,
+    })
+
+    postActions.setLoading(false)
+  } catch (error: any) {
+    yield put(postActions.setError(error.error))
+  }
+}
+
 export default function* postSaga() {
-  yield all([takeLatest(postActions.createPost.type, createPost)])
-  yield all([takeLatest(postActions.getPostList.type, fetchPosts)])
+  yield all([
+    takeLatest(postActions.createPost.type, createPost),
+    takeLatest(postActions.getPostList.type, fetchPosts),
+    takeLatest(postActions.likePost.type, likePost),
+    takeLatest(postActions.unlikePost.type, unlikePost),
+  ])
 }

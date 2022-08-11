@@ -9,7 +9,7 @@ const client = axios.create({
   },
 })
 
-export const apiCall = function ({ method, route, body = null, token = null }) {
+export const apiCall = function ({ method, route, body = {}, token = null }) {
   const onSuccess = function (response) {
     console.debug('Request Successful!', response)
     return response.data

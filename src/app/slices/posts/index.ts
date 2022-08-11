@@ -15,8 +15,12 @@ const slice = createSlice({
   name: 'post',
   initialState,
   reducers: {
+    setLoading(state, action: PayloadAction<boolean>){
+      state.loading = action.payload
+    },
     setPost(state, action: PayloadAction<any>) {
       state.post = action.payload
+      state.loading = false
     },
     setPostList(state, action: PayloadAction<any>) {
       state.postList = action.payload
@@ -32,6 +36,12 @@ const slice = createSlice({
     },
     getPost(state, action: PayloadAction<any>) {},
     getPostList(state) {
+      state.loading = true
+    },
+    likePost(state, action: PayloadAction<any>) {
+      state.loading = true
+    },
+    unlikePost(state, action: PayloadAction<any>) {
       state.loading = true
     },
     createPost(state, action: PayloadAction<any>) {

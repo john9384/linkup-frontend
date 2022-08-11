@@ -1,20 +1,48 @@
+import React from 'react'
 import styled from 'styled-components'
-import { ImageGrid } from './ImageGrid'
-import { Avatar } from './Avatar'
+import {ImageGrid} from './ImageGrid'
+import {Avatar} from './Avatar'
 import './ReactionDiv/icon.css'
-import { avatars } from 'app/assets/imageLinks'
+import {avatars} from 'app/assets/imageLinks'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import ShareIcon from '@mui/icons-material/Share'
 import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded'
+import {postActions} from '../../../../slices/posts'
+import {useDispatch} from 'react-redux'
+import useFetchCurrentUserProfile from "../../../../../hooks/useFetchCurrentUserProfile";
+import {LoadingIcon} from "../../../../components/LoadingIcon";
 
 interface Props {
-  user: any
-  content: string
-  images?: string[]
+  // id: string
+  // user: any
+  // content: string
+  // images?: string[]
+  // likes: string[]
+  [key: string]: any
 }
-export const PostCard = (props: Props) => {
-  const { user, content, images } = props
+
+export const PostCard = React.memo((props: Props) => {
+  const { id, user, content, images, likes, currentUser } = props
+  const [isLiked, setIsLiked] = React.useState(
+    likes?.includes(currentUser?.id)
+  )
+
+  const likeIconColor = isLiked ? 'blue' : 'inherit'
+  const dispatch = useDispatch()
+
+  const toggleLikePost = () => {
+    if (!isLiked) {
+      setIsLiked(true)
+      dispatch(postActions.likePost({ postId: id }))
+
+    } else {
+      setIsLiked(false)
+      dispatch(postActions.unlikePost({ postId: id }))
+    }
+  }
+
+
   return (
     <Container>
       <PostHead>
@@ -27,8 +55,11 @@ export const PostCard = (props: Props) => {
       <PostTextDiv>{content}</PostTextDiv>
       {images && images.length > 0 && <ImageGrid imageLinks={images} />}
       <ReactionDiv>
-        <ReactionButton>
-          <FavoriteBorderIcon className="icon" />
+        <ReactionButton onClick={toggleLikePost}>
+          <FavoriteBorderIcon
+            className="icon"
+            style={{ color: likeIconColor }}
+          />
         </ReactionButton>
         <ReactionButton>
           <ChatBubbleOutlineIcon className="icon" />
@@ -42,7 +73,7 @@ export const PostCard = (props: Props) => {
       </ReactionDiv>
     </Container>
   )
-}
+})
 
 const Container = styled.div`
   background: #ffffff;

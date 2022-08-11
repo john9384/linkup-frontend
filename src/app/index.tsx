@@ -11,13 +11,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadingSelector } from './slices/auth/selectors'
 import { authActions } from './slices/auth'
 import ErrorBoundary from './ErrorBoundary'
-// import useFetchCurrentUser from "../hooks/useFetchCurrentUser";
+// import useFetchCurrentUserProfile from "../hooks/useFetchCurrentUserProfile";
 
 export function App() {
   const { i18n } = useTranslation()
   const dispatch = useDispatch()
   const loading = useSelector(loadingSelector)
-  // const { user } = useFetchCurrentUser()
+  // const { user } = useFetchCurrentUserProfile()
 
   const setAuthentication = async () => {
     const token = localStorage.getItem('ltk')

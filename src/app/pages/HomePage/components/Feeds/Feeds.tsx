@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PostCard } from './PostCard'
-import { PostCardSkeleton } from './PostCardSkeleton'
 import useFetchPostList from 'hooks/useFetchPosts'
-import { LoadingIcon } from '../../../../components/LoadingIcon/index'
+import { LoadingIcon } from 'app/components/LoadingIcon'
+import useFetchCurrentUserProfile from 'hooks/useFetchCurrentUserProfile'
 
 export const Feeds = () => {
   const [pageNumber, setPageNumber] = React.useState(0)
   const { loading, posts, hasMore } = useFetchPostList({ pageNumber })
+  const { user: currentUser, loading: profileLoading } =
+    useFetchCurrentUserProfile()
 
   const observer = React.useRef<any>()
   const lastElementRef = React.useCallback(
@@ -24,21 +26,27 @@ export const Feeds = () => {
     [loading, hasMore],
   )
 
-  if (loading || posts == null) {
+  if (loading || profileLoading || posts == null || currentUser == null) {
     return <LoadingIcon />
   }
 
   return (
     <Container>
       {posts.map((post, index) => {
+        const props = {
+          id: post._id,
+          ...post,
+          currentUser,
+        }
+
         if (posts.length === index + 1) {
           return (
             <div ref={lastElementRef}>
-              <PostCard key={index} {...post} />
+              <PostCard key={post._id} {...props} />
             </div>
           )
         } else {
-          return <PostCard key={index} {...post} />
+          return <PostCard key={post._id} {...props} />
         }
       })}
     </Container>

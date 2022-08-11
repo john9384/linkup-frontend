@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux'
 import { profileActions } from '../app/slices/profileSlice'
 import { userProfileSelector } from '../app/slices/profileSlice/selectors'
 
-const useFetchCurrentUser = () => {
+const useFetchCurrentUserProfile = () => {
   const [loading, setLoading] = React.useState(false)
-  const [user, setUser] = React.useState({})
+  const [user, setUser] = React.useState<any>({})
   const dispatch = useDispatch()
   const currentUser = useSelector(userProfileSelector)
 
@@ -26,4 +26,4 @@ const useFetchCurrentUser = () => {
   return { loading, user }
 }
 
-export default useFetchCurrentUser
+export default useFetchCurrentUserProfile

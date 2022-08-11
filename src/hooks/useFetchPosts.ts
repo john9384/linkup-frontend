@@ -10,7 +10,6 @@ const useFetchPostList = ({ pageNumber }) => {
   const [error, setError] = React.useState(false)
   const [hasMore, setHasMore] = React.useState(false)
   const dispatch = useDispatch()
-
   const posts = useSelector(postListSelector)
 
   React.useEffect(() => {

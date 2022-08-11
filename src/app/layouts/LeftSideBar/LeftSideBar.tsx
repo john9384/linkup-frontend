@@ -1,15 +1,12 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { userSelector } from 'app/slices/auth/selectors'
 import styled from 'styled-components/macro'
 // import { Advert } from './components/Advert';
 import { NavMenu } from './components/NavMenu'
 import { UserAccount } from './components/UserAccount'
-import { authActions } from '../../slices/auth'
-import useFetchUser from "../../../hooks/useFetchUser";
+import useFetchCurrentUser from '../../../hooks/useFetchCurrentUser'
 
 export const LeftSideBar = () => {
-  const { loading, user } = useFetchUser()
+  const { loading, user } = useFetchCurrentUser()
 
   return (
     <Container>

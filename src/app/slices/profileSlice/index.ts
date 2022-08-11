@@ -18,8 +18,12 @@ const slice = createSlice({
       state.loading = true
     },
 
+    getCurrentUser: state => {
+      state.loading = true
+    },
+
     setCurrentUser(state, action: PayloadAction<any>) {
-      state.user = { ...state.user, ...action.payload }
+      state.user = action.payload
       state.error = null
       state.loading = false
     },

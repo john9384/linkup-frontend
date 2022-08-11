@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import { Avatar } from './components/Avatar'
 import AvatarImg from 'app/assets/avatar-3637425__340.png'
 import { IUser } from 'app/slices/profileSlice/types'
-import { useSelector } from 'react-redux'
-import { loadingSelector } from 'app/slices/auth/selectors'
+
 interface Props {
   loading: boolean
   user: IUser
 }
 export const UserAccount = React.memo(({ loading, user }: Props) => {
-  // const loading = useSelector(loadingSelector)
 
   if (loading || user == null)
     return (
@@ -38,7 +36,6 @@ export const UserAccount = React.memo(({ loading, user }: Props) => {
 const Container = styled.div`
   width: 100%;
   background-color: ${p => p.theme.backgroundVariant};
-  background: #ffffff;
   box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
   margin-bottom: 2rem;
@@ -55,7 +52,6 @@ const UserDetailDiv = styled.div`
 `
 
 const Name = styled.p`
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -64,7 +60,6 @@ const Name = styled.p`
 `
 
 const Username = styled.p`
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

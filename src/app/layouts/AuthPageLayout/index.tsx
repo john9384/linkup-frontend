@@ -4,12 +4,14 @@ import styled from 'styled-components'
 import IllustrationOne from 'app/assets/undraw/illustration1.svg'
 import IllustrationTwo from 'app/assets/undraw/illustration3.svg'
 import IllustrationThree from 'app/assets/undraw/illustration2.svg'
+import { useProfileSlice } from '../../slices/profileSlice'
 
 interface Props {
   children: React.ReactNode
 }
 
 export const AuthPageLayout = React.memo(({ children }: Props) => {
+  useProfileSlice()
   return (
     <>
       <Helmet>

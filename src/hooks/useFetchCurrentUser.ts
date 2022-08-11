@@ -1,29 +1,29 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { userSelector } from '../app/slices/auth/selectors'
-import { authActions } from '../app/slices/auth'
+import { profileActions } from '../app/slices/profileSlice'
+import { userProfileSelector } from '../app/slices/profileSlice/selectors'
 
-const useFetchUser = () => {
+const useFetchCurrentUser = () => {
   const [loading, setLoading] = React.useState(false)
   const [user, setUser] = React.useState({})
   const dispatch = useDispatch()
-  const fetchedUser = useSelector(userSelector)
+  const currentUser = useSelector(userProfileSelector)
 
   React.useEffect(() => {
     setLoading(true)
     const fetchUser = () => {
-      if (fetchedUser === undefined) {
-        dispatch(authActions.getCurrentUser())
+      if (!currentUser) {
+        dispatch(profileActions.getCurrentUser())
       }
-      setUser(fetchedUser)
+      setUser(currentUser)
       setLoading(false)
     }
 
     fetchUser()
-  }, [dispatch, fetchedUser, user])
+  }, [dispatch, currentUser])
 
   return { loading, user }
 }
 
-export default useFetchUser
+export default useFetchCurrentUser

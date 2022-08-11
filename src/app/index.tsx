@@ -11,11 +11,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadingSelector } from './slices/auth/selectors'
 import { authActions } from './slices/auth'
 import ErrorBoundary from './ErrorBoundary'
+// import useFetchCurrentUser from "../hooks/useFetchCurrentUser";
 
 export function App() {
   const { i18n } = useTranslation()
   const dispatch = useDispatch()
   const loading = useSelector(loadingSelector)
+  // const { user } = useFetchCurrentUser()
 
   const setAuthentication = async () => {
     const token = localStorage.getItem('ltk')
@@ -26,7 +28,9 @@ export function App() {
     })
 
     if (payload.data.success) {
-      dispatch(authActions.setAuthentication({ isAuthenticated: true, token }))
+      dispatch(
+        authActions.setAuthentication({ isAuthenticated: true, token }),
+      )
     } else {
       dispatch(authActions.setAuthentication({ isAuthenticated: false }))
     }

@@ -1,8 +1,5 @@
-import React, { memo } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { NotFoundPage } from 'app/pages/NotFoundPage/Loadable'
-import { AuthGuard } from 'app/routes/guards/AuthGuard'
-import { NotAuthGuard } from './guards/NotAuthGuard'
 import { Login } from 'app/pages/auth/components/Login/Login'
 import { Signup } from 'app/pages/auth/components/Signup'
 import { AuthPageLayout } from 'app/layouts/AuthPageLayout'
@@ -16,114 +13,35 @@ import { VerifyResetToken } from 'app/pages/auth/components/VerifyResetToken'
 import { UserPhoto } from 'app/pages/UserPhotos/UserPhotos'
 import { UserProfile } from 'app/pages/UserProfile/loadable'
 import { UserSettings } from 'app/pages/UserSettings'
-
-interface Props {}
+import { useAuthSlice } from 'app/slices/auth'
+import { useProfileSlice } from 'app/slices/profileSlice'
+import { isAuthenticated } from 'app/slices/auth/selectors'
+import { useSelector } from 'react-redux'
 
 export const AppRoutes = () => {
+  useAuthSlice()
+  useProfileSlice()
+  const isAuth: boolean = useSelector(isAuthenticated)
   return (
     <Routes>
-      <Route path="/auth/" element={<NotAuthGuard />}>
-        <Route
-          path="login"
-          element={
-            <AuthPageLayout>
-              <Login />
-            </AuthPageLayout>
-          }
-        />
-
-        <Route
-          path="signup"
-          element={
-            <AuthPageLayout>
-              <Signup />
-            </AuthPageLayout>
-          }
-        />
-
-        <Route
-          path="verify-email"
-          element={
-            <AuthPageLayout>
-              <VerifyEmail />
-            </AuthPageLayout>
-          }
-        />
-
-        <Route
-          path="forgot-password"
-          element={
-            <AuthPageLayout>
-              <ForgotPassword />
-            </AuthPageLayout>
-          }
-        />
-
-        <Route
-          path="confirm-reset"
-          element={
-            <AuthPageLayout>
-              <VerifyResetToken />
-            </AuthPageLayout>
-          }
-        />
-
-        <Route
-          path="reset-password"
-          element={
-            <AuthPageLayout>
-              <ResetPassword />
-            </AuthPageLayout>
-          }
-        />
+      <Route
+        path="/auth/*"
+        element={<AuthPageLayout isAuthenticated={isAuth} />}
+      >
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="verify-email" element={<VerifyEmail />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="confirm-reset" element={<VerifyResetToken />} />
+        <Route path="reset-password" element={<ResetPassword />} />
       </Route>
 
-      {/* Authenticated Routes starts from here */}
-      <Route path="/" element={<AuthGuard />}>
-        <Route
-          path="/"
-          element={
-            <PageLayout>
-              <HomePage />
-            </PageLayout>
-          }
-        />
-
-        <Route
-          path="/people"
-          element={
-            <PageLayout>
-              <People />
-            </PageLayout>
-          }
-        />
-
-        <Route
-          path="/photos"
-          element={
-            <PageLayout>
-              <UserPhoto />
-            </PageLayout>
-          }
-        />
-
-        <Route
-          path="/profile"
-          element={
-            <PageLayout>
-              <UserProfile />
-            </PageLayout>
-          }
-        />
-
-        <Route
-          path="/settings"
-          element={
-            <PageLayout>
-              <UserSettings />
-            </PageLayout>
-          }
-        />
+      <Route path="/" element={<PageLayout isAuthenticated={isAuth} />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="people" element={<People />} />
+        <Route path="photos" element={<UserPhoto />} />
+        <Route path="profile" element={<UserProfile />} />
+        <Route path="settings" element={<UserSettings />} />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

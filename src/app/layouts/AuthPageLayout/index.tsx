@@ -4,14 +4,17 @@ import styled from 'styled-components'
 import IllustrationOne from 'app/assets/undraw/illustration1.svg'
 import IllustrationTwo from 'app/assets/undraw/illustration3.svg'
 import IllustrationThree from 'app/assets/undraw/illustration2.svg'
-import { useProfileSlice } from '../../slices/profileSlice'
+import { Navigate, Outlet } from 'react-router-dom'
 
 interface Props {
-  children: React.ReactNode
+  isAuthenticated: boolean
 }
 
-export const AuthPageLayout = React.memo(({ children }: Props) => {
-  useProfileSlice()
+export const AuthPageLayout = React.memo(({ isAuthenticated }: Props) => {
+  if (isAuthenticated) {
+    return <Navigate to="/" />
+  }
+
   return (
     <>
       <Helmet>
@@ -28,7 +31,9 @@ export const AuthPageLayout = React.memo(({ children }: Props) => {
               <Illustration src={IllustrationThree} alt="illustration" />
             </IllustrationDiv>
           </Left>
-          <Right>{children}</Right>
+          <Right>
+            <Outlet />
+          </Right>
         </Container>
       </Page>
     </>

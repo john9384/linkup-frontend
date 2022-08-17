@@ -1,21 +1,27 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { Navigate, Outlet } from 'react-router-dom'
 import { LeftSideBar } from '../LeftSideBar'
 import { RightSideBar } from '../RightSideBar'
 import { TopBar } from '../TopBar'
 import { StyleConstants as SC } from 'styles/StyleConstants'
 
 interface Props {
-  children: React.ReactNode
+  isAuthenticated: boolean
 }
 
-export const PageLayout = React.memo(({ children }: Props) => {
+export const PageLayout = React.memo(({ isAuthenticated }: Props) => {
+  if (!isAuthenticated) {
+    return <Navigate to="/auth/login" />
+  }
   return (
     <Page>
       <TopBar />
       <Container>
         <LeftSideBar />
-        <Main>{children}</Main>
+        <Main>
+          <Outlet />
+        </Main>
         <RightSideBar />
       </Container>
     </Page>

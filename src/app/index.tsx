@@ -28,9 +28,7 @@ export function App() {
     })
 
     if (payload.data.success) {
-      dispatch(
-        authActions.setAuthentication({ isAuthenticated: true, token }),
-      )
+      dispatch(authActions.setAuthentication({ isAuthenticated: true, token }))
     } else {
       dispatch(authActions.setAuthentication({ isAuthenticated: false }))
     }

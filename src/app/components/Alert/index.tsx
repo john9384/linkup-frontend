@@ -9,7 +9,6 @@ interface Props {
 }
 
 export const AlertDiv = ({ type, message, unmountMethod }: Props) => {
-
   useTimeout(() => {
     unmountMethod()
   }, 2000)

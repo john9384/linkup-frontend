@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ImageGrid} from './ImageGrid'
-import {Avatar} from './Avatar'
+import { ImageGrid } from './ImageGrid'
+import { Avatar } from './Avatar'
 import './ReactionDiv/icon.css'
-import {avatars} from 'app/assets/imageLinks'
+import { avatars } from 'app/assets/imageLinks'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import ShareIcon from '@mui/icons-material/Share'
 import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded'
-import {postActions} from '../../../../slices/posts'
-import {useDispatch} from 'react-redux'
-import useFetchCurrentUserProfile from "../../../../../hooks/useFetchCurrentUserProfile";
-import {LoadingIcon} from "../../../../components/LoadingIcon";
+import { postActions } from '../../../../slices/posts'
+import { useDispatch } from 'react-redux'
 
 interface Props {
   // id: string
@@ -24,9 +22,7 @@ interface Props {
 
 export const PostCard = React.memo((props: Props) => {
   const { id, user, content, images, likes, currentUser } = props
-  const [isLiked, setIsLiked] = React.useState(
-    likes?.includes(currentUser?.id)
-  )
+  const [isLiked, setIsLiked] = React.useState(likes?.includes(currentUser?.id))
 
   const likeIconColor = isLiked ? 'blue' : 'inherit'
   const dispatch = useDispatch()
@@ -35,13 +31,11 @@ export const PostCard = React.memo((props: Props) => {
     if (!isLiked) {
       setIsLiked(true)
       dispatch(postActions.likePost({ postId: id }))
-
     } else {
       setIsLiked(false)
       dispatch(postActions.unlikePost({ postId: id }))
     }
   }
-
 
   return (
     <Container>

@@ -6,7 +6,8 @@ import profileSaga from './saga'
 
 export const initialState: ProfileState = {
   loading: false,
-  user: null,
+  profile: null,
+  profileList: [],
   error: null,
 }
 
@@ -18,12 +19,13 @@ const slice = createSlice({
       state.loading = true
     },
 
-    getCurrentUser: state => {
-      state.loading = true
+    setProfile(state, action: PayloadAction<any>) {
+      state.profile = { ...state.profile, ...action.payload }
+      state.error = null
+      state.loading = false
     },
-
-    setCurrentUser(state, action: PayloadAction<any>) {
-      state.user = action.payload
+    setProfileList(state, action: PayloadAction<any>) {
+      state.profileList = [...state.profileList, ...action.payload]
       state.error = null
       state.loading = false
     },

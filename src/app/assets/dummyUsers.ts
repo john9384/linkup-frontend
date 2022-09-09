@@ -191,7 +191,7 @@ export const dummyUsers = [
   },
 ]
 
-const data = [
+export const data = [
   {
     user: {
       avatar: avatars[0],

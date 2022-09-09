@@ -1,6 +1,6 @@
 import { AuthState } from 'app/slices/auth/types'
 import { ThemeState } from 'styles/theme/slice/types'
-import { ProfileState } from '../app/slices/profileSlice/types'
+import { ProfileState } from '../app/slices/profiles/types'
 import { PostState } from '../app/slices/posts/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 

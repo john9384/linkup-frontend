@@ -37,15 +37,15 @@ function* verifyEmail(data) {
 function* login(data) {
   yield delay(500)
   try {
-    const { formData, navigate } = data.payload
+    const { formData } = data.payload
     const res = yield call(apiCall, {
       method: 'POST',
       route: '/auth/login',
       body: formData,
     })
-    yield put(authActions.setUser({ email: res.data.email }))
-    yield put(authActions.setAuth(res.data.token))
-    navigate('/')
+
+    localStorage.setItem('ltk', res.data.token)
+    yield put(authActions.setAuth({ isAuthenticated: true }))
   } catch (error: any) {
     yield put(authActions.setError(error.error))
   }

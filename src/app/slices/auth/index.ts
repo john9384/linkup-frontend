@@ -6,7 +6,6 @@ import authSaga from './saga'
 
 export const initialState: AuthState = {
   isAuthenticated: false,
-  authToken: null,
   loading: false,
   user: {},
   error: null,
@@ -26,15 +25,14 @@ const slice = createSlice({
 
     setAuthentication(state, action: PayloadAction<any>) {
       state.isAuthenticated = action.payload.isAuthenticated
-      state.authToken = action.payload.token
       state.user = action.payload.user
       state.loading = false
     },
 
-    setAuth(state, action: PayloadAction<string>) {
-      localStorage.setItem('ltk', action.payload)
-      state.authToken = action.payload
-      state.isAuthenticated = true
+    setAuth(state, action: PayloadAction<any>) {
+      state.isAuthenticated = action.payload.isAuthenticated
+      state.user = action.payload.user
+      state.loading = false
     },
 
     setUser(state, action: PayloadAction<any>) {

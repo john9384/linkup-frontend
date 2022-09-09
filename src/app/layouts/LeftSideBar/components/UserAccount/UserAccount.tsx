@@ -2,14 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Avatar } from './components/Avatar'
 import AvatarImg from 'app/assets/avatar-3637425__340.png'
-import { IUser } from 'app/slices/profileSlice/types'
+import { IUser } from 'app/slices/profiles/types'
 
 interface Props {
   loading: boolean
   user: IUser
 }
 export const UserAccount = React.memo(({ loading, user }: Props) => {
-
   if (loading || user == null)
     return (
       <Container>

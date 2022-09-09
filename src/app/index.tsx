@@ -1,42 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { BrowserRouter } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import axios from 'axios'
-
 import { GlobalStyle } from 'styles/global-styles'
 import { AppRoutes } from 'app/routes'
 import { LoadingAnimation } from './components/LoadingAnimation'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadingSelector } from './slices/auth/selectors'
-import { authActions } from './slices/auth'
+import { authActions, useAuthSlice } from './slices/auth'
 import ErrorBoundary from './ErrorBoundary'
-// import useFetchCurrentUserProfile from "../hooks/useFetchCurrentUserProfile";
+import useFetchCurrentUser from 'hooks/useFetchCurrentUser'
 
 export function App() {
+  useAuthSlice()
   const { i18n } = useTranslation()
   const dispatch = useDispatch()
-  const loading = useSelector(loadingSelector)
-  // const { user } = useFetchCurrentUserProfile()
+  const authLoading = useSelector(loadingSelector)
+  const { loading, user, isAuthenticated } = useFetchCurrentUser()
 
-  const setAuthentication = async () => {
-    const token = localStorage.getItem('ltk')
-    const payload = await axios.get('http://localhost:4000/api/v1/auth/user', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-
-    if (payload.data.success) {
-      dispatch(authActions.setAuthentication({ isAuthenticated: true, token }))
-    } else {
-      dispatch(authActions.setAuthentication({ isAuthenticated: false }))
-    }
+  if (!loading && isAuthenticated) {
+    dispatch(authActions.setAuth({ isAuthenticated: true, user }))
+  } else {
+    dispatch(authActions.setAuth({ isAuthenticated: false }))
   }
 
-  React.useEffect(() => {
-    setAuthentication()
-  })
+  useEffect(() => {})
 
   return (
     <BrowserRouter>
@@ -49,10 +37,10 @@ export function App() {
       </Helmet>
       <React.Fragment>
         <ErrorBoundary>
-          <AppRoutes />
+          <AppRoutes isAuth={isAuthenticated} />
         </ErrorBoundary>
       </React.Fragment>
-      {loading && <LoadingAnimation />}
+      {authLoading && <LoadingAnimation />}
       <GlobalStyle />
     </BrowserRouter>
   )

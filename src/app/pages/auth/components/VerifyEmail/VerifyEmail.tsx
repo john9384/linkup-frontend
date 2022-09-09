@@ -14,7 +14,6 @@ export function VerifyEmail() {
 
   const verifyToken = e => {
     e.preventDefault()
-    console.log(code)
     dispatch(
       authActions.verifyUserEmail({
         formData: { token: code },

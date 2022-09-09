@@ -3,10 +3,10 @@ import styled from 'styled-components/macro'
 // import { Advert } from './components/Advert';
 import { NavMenu } from './components/NavMenu'
 import { UserAccount } from './components/UserAccount'
-import useFetchCurrentUserProfile from '../../../hooks/useFetchCurrentUserProfile'
+import useFetchCurrentUser from '../../../hooks/useFetchCurrentUser'
 
 export const LeftSideBar = () => {
-  const { loading, user } = useFetchCurrentUserProfile()
+  const { loading, user } = useFetchCurrentUser()
 
   return (
     <Container>

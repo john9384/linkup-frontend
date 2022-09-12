@@ -30,25 +30,25 @@ export const Feeds = () => {
 
   return (
     <Container>
-      {posts.map(
-        (post: { _id: React.Key | null | undefined }, index: number) => {
-          const props = {
-            id: post._id,
-            ...post,
-            currentUser,
-          }
+      {posts.map((post: any, index: number) => {
+        const isLiked = post.likes?.includes(currentUser?.id)
+        const props = {
+          id: post._id,
+          ...post,
+          currentUser,
+          isLiked,
+        }
 
-          if (posts.length === index + 1) {
-            return (
-              <div key={post._id} ref={lastElementRef}>
-                <PostCard key={post._id} {...props} />
-              </div>
-            )
-          } else {
-            return <PostCard key={post._id} {...props} />
-          }
-        },
-      )}
+        if (posts.length === index + 1) {
+          return (
+            <div key={post._id} ref={lastElementRef}>
+              <PostCard key={post._id} {...props} />
+            </div>
+          )
+        } else {
+          return <PostCard key={post._id} {...props} />
+        }
+      })}
     </Container>
   )
 }

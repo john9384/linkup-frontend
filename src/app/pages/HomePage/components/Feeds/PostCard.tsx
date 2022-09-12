@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 import styled from 'styled-components'
 import { ImageGrid } from './ImageGrid'
 import { Avatar } from './Avatar'
@@ -9,7 +10,8 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
 import ShareIcon from '@mui/icons-material/Share'
 import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded'
 import { postActions } from '../../../../slices/posts'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { postListSelector } from 'app/slices/posts/selectors'
 
 interface Props {
   // id: string
@@ -21,19 +23,36 @@ interface Props {
 }
 
 export const PostCard = React.memo((props: Props) => {
-  const { id, user, content, images, likes, currentUser } = props
-  const [isLiked, setIsLiked] = React.useState(likes?.includes(currentUser?.id))
-
+  const { id, user, content, images, currentUser } = props
+  const [isLiked, setIsLiked] = React.useState(props.isLiked)
+  const posts = useSelector(postListSelector)
   const likeIconColor = isLiked ? 'blue' : 'inherit'
   const dispatch = useDispatch()
 
   const toggleLikePost = () => {
     if (!isLiked) {
       setIsLiked(true)
-      dispatch(postActions.likePost({ postId: id }))
+      const post = posts.find(post => post.id === id)
+      const likes = post.likes
+      const uniqueLikes = _.uniq([...likes, currentUser.id])
+
+      dispatch(
+        postActions.updatePost({
+          postId: id,
+          formData: { likes: uniqueLikes },
+        }),
+      )
     } else {
       setIsLiked(false)
-      dispatch(postActions.unlikePost({ postId: id }))
+      const post = posts.find(post => post.id === id)
+      const likes = post.likes
+      const updatedLikes = _.remove(likes, currentUser.id)
+      dispatch(
+        postActions.updatePost({
+          postId: id,
+          formData: { likes: updatedLikes },
+        }),
+      )
     }
   }
 

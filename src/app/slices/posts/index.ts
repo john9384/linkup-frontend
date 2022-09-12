@@ -38,14 +38,11 @@ const slice = createSlice({
     getPostList(state) {
       state.loading = true
     },
-    likePost(state, action: PayloadAction<any>) {
-      state.loading = true
-    },
-    unlikePost(state, action: PayloadAction<any>) {
-      state.loading = true
-    },
     createPost(state, action: PayloadAction<any>) {
       state.loading = true
+    },
+    updatePost(state, action: PayloadAction<any>) {
+      state.loading = false
     },
     setError(state, action: PayloadAction<any>) {
       state.error = action.payload

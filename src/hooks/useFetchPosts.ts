@@ -28,6 +28,7 @@ const useFetchPostList = ({ pageNumber }) => {
     })
       .then(res => {
         if (pageNumber === 0) {
+          console.log(res.data.data, '+++++++++++=')
           dispatch(postActions.setPostList(res.data.data))
         } else {
           dispatch(postActions.pushPostList(res.data.data))

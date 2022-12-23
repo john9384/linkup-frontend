@@ -23,7 +23,8 @@ interface Props {
 }
 
 export const PostCard = React.memo((props: Props) => {
-  const { id, user, content, images, currentUser } = props
+  const { id, user, content, images, videos, currentUser } = props
+  const media = [...videos, ...images]
   const [isLiked, setIsLiked] = React.useState(props.isLiked)
   const posts = useSelector(postListSelector)
   const likeIconColor = isLiked ? 'blue' : 'inherit'
@@ -66,7 +67,7 @@ export const PostCard = React.memo((props: Props) => {
         </UserDetailDiv>
       </PostHead>
       <PostTextDiv>{content}</PostTextDiv>
-      {images && images.length > 0 && <ImageGrid imageLinks={images} />}
+      {media && media.length > 0 && <ImageGrid imageLinks={media} />}
       <ReactionDiv>
         <ReactionButton onClick={toggleLikePost}>
           <FavoriteBorderIcon

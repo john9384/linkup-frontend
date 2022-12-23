@@ -4,11 +4,12 @@ interface Props {
   imageLinks: string[]
 }
 export const ImageGrid = ({ imageLinks }: Props) => {
+  console.log(imageLinks)
   let links: string[] = imageLinks
   if (imageLinks.length > 4) {
     links = imageLinks.slice(0, 4)
   }
-
+  console.log(links)
   return (
     <Container>
       {links.map((link, index) => {
@@ -37,25 +38,28 @@ const Container = styled.div`
 `
 
 const ImgDivBasic = ({ link }) => {
+  console.log(link)
   return (
     <BasicGrid>
-      <Img src={link} />
+      {link.includes('mp4') ? <Video src={link} /> : <Img src={link} />}
     </BasicGrid>
   )
 }
 
 const ImgDivTreble = ({ link }) => {
+  console.log(link)
   return (
     <TrebleGrid>
-      <Img src={link} />
+      {link.includes('mp4') ? <Video src={link} /> : <Img src={link} />}
     </TrebleGrid>
   )
 }
 
 const ImgDivQuart = ({ link }) => {
+  console.log(link)
   return (
     <ImgDiv>
-      <Img src={link} />
+      {link.includes('mp4') ? <Video src={link} /> : <Img src={link} />}{' '}
     </ImgDiv>
   )
 }
@@ -80,3 +84,15 @@ const Img = styled.img`
   height: 100%;
   object-fit: cover;
 `
+const Vid = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
+const Video = ({ src }: { src: string }) => {
+  return (
+    <Vid controls>
+      <source src={src} type="video/mp4" />
+    </Vid>
+  )
+}

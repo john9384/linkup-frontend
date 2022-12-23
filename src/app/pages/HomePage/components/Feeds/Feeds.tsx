@@ -32,8 +32,9 @@ export const Feeds = () => {
     <Container>
       {posts.map((post: any, index: number) => {
         const isLiked = post.likes?.includes(currentUser?.id)
+
         const props = {
-          id: post._id,
+          id: post.id,
           ...post,
           currentUser,
           isLiked,
@@ -41,12 +42,12 @@ export const Feeds = () => {
 
         if (posts.length === index + 1) {
           return (
-            <div key={post._id} ref={lastElementRef}>
-              <PostCard key={post._id} {...props} />
+            <div key={post.id} ref={lastElementRef}>
+              <PostCard key={post.id} {...props} />
             </div>
           )
         } else {
-          return <PostCard key={post._id} {...props} />
+          return <PostCard key={post.id} {...props} />
         }
       })}
     </Container>
